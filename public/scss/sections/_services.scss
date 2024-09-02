@@ -1,0 +1,155 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Services Section
+--------------------------------------------------------------*/
+.services {
+  .service-item {
+    background-color: var(--surface-color);
+    box-shadow: 0px 5px 90px 0px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    padding: 60px 30px;
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 5px;
+
+    .icon {
+      margin: 0 auto;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: ease-in-out 0.3s;
+      position: relative;
+
+      i {
+        font-size: 36px;
+        transition: 0.5s;
+        position: relative;
+      }
+
+      svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        path {
+          transition: 0.5s;
+          fill: color-mix(in srgb, var(--default-color), transparent 95%);
+        }
+      }
+    }
+
+    h3 {
+      font-weight: 700;
+      margin: 10px 0 15px 0;
+      font-size: 22px;
+    }
+
+    p {
+      line-height: 24px;
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    &.item-cyan {
+      i {
+        color: #0dcaf0;
+      }
+
+      &:hover .icon {
+        i {
+          color: #fff;
+        }
+
+        path {
+          fill: #0dcaf0;
+        }
+      }
+    }
+
+    &.item-orange {
+      i {
+        color: #fd7e14;
+      }
+
+      &:hover .icon {
+        i {
+          color: #fff;
+        }
+
+        path {
+          fill: #fd7e14;
+        }
+      }
+    }
+
+    &.item-teal {
+      i {
+        color: #20c997;
+      }
+
+      &:hover .icon {
+        i {
+          color: #fff;
+        }
+
+        path {
+          fill: #20c997;
+        }
+      }
+    }
+
+    &.item-red {
+      i {
+        color: #df1529;
+      }
+
+      &:hover .icon {
+        i {
+          color: #fff;
+        }
+
+        path {
+          fill: #df1529;
+        }
+      }
+    }
+
+    &.item-indigo {
+      i {
+        color: #6610f2;
+      }
+
+      &:hover .icon {
+        i {
+          color: #fff;
+        }
+
+        path {
+          fill: #6610f2;
+        }
+      }
+    }
+
+    &.item-pink {
+      i {
+        color: #f3268c;
+      }
+
+      &:hover .icon {
+        i {
+          color: #fff;
+        }
+
+        path {
+          fill: #f3268c;
+        }
+      }
+    }
+  }
+}

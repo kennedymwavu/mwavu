@@ -1,0 +1,66 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Portfolio Details Section
+--------------------------------------------------------------*/
+.portfolio-details {
+  .portfolio-details-slider {
+    img {
+      width: 100%;
+    }
+
+    .swiper-pagination {
+      margin-top: 20px;
+      position: relative;
+
+      .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+        opacity: 1;
+      }
+
+      .swiper-pagination-bullet-active {
+        background-color: var(--accent-color);
+      }
+    }
+  }
+
+  .portfolio-info {
+    background-color: var(--surface-color);
+    padding: 30px;
+    box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      font-size: 15px;
+
+      li+li {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .portfolio-description {
+    padding-top: 30px;
+
+    h2 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    p {
+      padding: 0;
+      color: color-mix(in srgb, var(--default-color), transparent 30%);
+    }
+  }
+}

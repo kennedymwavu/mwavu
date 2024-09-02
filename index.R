@@ -15,6 +15,7 @@ box::use(
 Ambiorix$
   new(host = "0.0.0.0", port = 8000)$
   set_error(error_handler)$
+  static("public", "assets")$
   get("/", home)$
   get("/about", about)$
   get("/resume", resume)$

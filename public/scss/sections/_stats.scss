@@ -1,0 +1,41 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Stats Section
+--------------------------------------------------------------*/
+.stats {
+  .stats-item {
+    padding: 30px;
+    width: 100%;
+
+    span {
+      color: var(--heading-color);
+      font-size: 48px;
+      display: block;
+      font-weight: 700;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--accent-color);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+
+    p {
+      color: color-mix(in srgb, var(--default-color), transparent 40%);
+      padding: 0;
+      margin: 0;
+      font-family: var(--heading-font);
+      font-weight: 500;
+    }
+  }
+}
