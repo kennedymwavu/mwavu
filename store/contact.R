@@ -31,9 +31,14 @@ contact <- \() {
               contact_details()
             ),
             tags$div(
+              id = "form_container",
               class = "col-lg-7",
               default_contact_form()
             )
+          ),
+          tags$span(
+            id = "loader",
+            class = "loader htmx-indicator"
           )
         )
       )
@@ -137,7 +142,8 @@ text_area_input <- \(
       id = id,
       name = id,
       rows = "10",
-      required = required
+      required = required,
+      value
     )
   )
 }
@@ -221,8 +227,9 @@ contact_form <- \(
 
   tags$form(
     `hx-post` = "/contact",
-    `hx-target` = "this",
+    `hx-target` = "#form_container",
     `hx-swap` = "outerHTML",
+    `hx-indicator` = "#loader",
     `data-aos` = "fade-up",
     `data-aos-delay` = "200",
     class = "php-email-form",
@@ -234,15 +241,6 @@ contact_form <- \(
       message,
       tags$div(
         class = "col-md-12 text-center",
-        tags$div(
-          class = "loading",
-          "Loading"
-        ),
-        tags$div(class = "error-message"),
-        tags$div(
-          class = "sent-message",
-          "Your message has been sent. Thank you!"
-        ),
         tags$button(
           type = "submit",
           "Send Message"
@@ -274,54 +272,6 @@ default_contact_form <- \() {
     message = text_area_input(
       label = "Message",
       id = "message"
-    )
-  )
-}
-
-#' Success alert once message is sent
-#'
-#' @return [htmltools::tags]
-#' @export
-success_alert <- \() {
-  tags$div(
-    class = paste(
-      "alert alert-success alert-dismissible",
-      "d-flex align-items-center"
-    ),
-    role = "alert",
-    tags$i(class = "bi bi-check2-circle pe-2"),
-    tags$div(
-      "Thank you! Your message has been sent. I'll get back to you soon."
-    ),
-    tags$button(
-      type = "button",
-      class = "btn-close",
-      `data-bs-dismiss` = "alert",
-      `aria-label` = "Close"
-    )
-  )
-}
-
-#' Error alert when message is not sent
-#'
-#' @return [htmltools::tags]
-#' @export
-error_alert <- \() {
-  tags$div(
-    class = paste(
-      "alert alert-danger alert-dismissible",
-      "d-flex align-items-center"
-    ),
-    role = "alert",
-    tags$i(class = "bi bi-exclamation-triangle pe-2"),
-    tags$div(
-      "An error occurred while sending your message. Please retry."
-    ),
-    tags$button(
-      type = "button",
-      class = "btn-close",
-      `data-bs-dismiss` = "alert",
-      `aria-label` = "Close"
     )
   )
 }
