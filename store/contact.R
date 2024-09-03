@@ -32,7 +32,7 @@ contact <- \() {
             ),
             tags$div(
               class = "col-lg-7",
-              contact_form()
+              default_contact_form()
             )
           )
         )
@@ -105,76 +105,127 @@ info_item <- \(
   )
 }
 
-contact_form <- \() {
-  name <- tags$div(
-    class = "col-md-6",
+#' Text area input
+#'
+#' @param label String. [htmltools::tags]. Input label.
+#' @param id String. A unique input id.
+#' @param value String. Value of the input.
+#' @param required Logical. Should the 'required' attribute be added?
+#' @param class Character vector. Classes to apply to the input.
+#' @param ... [htmltools::tags] to include after the input.
+#' @return [htmltools::tags]
+#' @export
+text_area_input <- \(
+  ...,
+  label = NULL,
+  id = NULL,
+  value = "",
+  required = TRUE,
+  class = NULL
+) {
+  required <- if (required) NA
+  class <- c("form-control", class)
+
+  tags$div(
     tags$label(
-      `for` = "name-field",
+      `for` = id,
       class = "pb-2",
-      "Your Name"
+      label
+    ),
+    tags$textarea(
+      class = class,
+      id = id,
+      name = id,
+      rows = "10",
+      required = required
+    )
+  )
+}
+
+#' Text input
+#'
+#' @param label String. [htmltools::tags]. Input label.
+#' @param id String. A unique input id
+#' @param type String. Type of the input.
+#' Must be one of "text" (default) or "email".
+#' @param value String. Value of the input.
+#' @param required Logical. Should the 'required' attribute be added?
+#' @param class Character vector. Classes to apply to the input.
+#' @param ... [htmltools::tags] to include after the input.
+#' @return [htmltools::tags]
+#' @export
+text_input <- \(
+  ...,
+  label = NULL,
+  id = NULL,
+  type = c("text", "email"),
+  value = "",
+  required = TRUE,
+  class = NULL
+) {
+  required <- if (required) NA
+  type <- match.arg(arg = type)
+  class <- c("form-control", class)
+
+  tags$div(
+    tags$label(
+      `for` = id,
+      class = "pb-2",
+      label
     ),
     tags$input(
-      type = "text",
-      name = "name",
-      id = "name-field",
-      class = "form-control",
-      required = ""
-    )
+      type = type,
+      id = id,
+      name = id,
+      value = value,
+      class = class,
+      required = required
+    ),
+    ...
+  )
+}
+
+#' Contact form
+#'
+#' @param name [htmltools::tags]
+#' @param email [htmltools::tags]
+#' @param subject [htmltools::tags]
+#' @param message [htmltools::tags]
+#' @return [htmltools::tags]
+#' @export
+contact_form <- \(
+  name = NULL,
+  email = NULL,
+  subject = NULL,
+  message = NULL
+) {
+  name <- tags$div(
+    class = "col-md-6",
+    name
   )
 
   email <- tags$div(
     class = "col-md-6",
-    tags$label(
-      `for` = "email-field",
-      class = "pb-2",
-      "Your Email"
-    ),
-    tags$input(
-      type = "email",
-      class = "form-control",
-      name = "email",
-      id = "email-field",
-      required = ""
-    )
+    email
   )
 
   subject <- tags$div(
     class = "col-md-12",
-    tags$label(
-      `for` = "subject-field",
-      class = "pb-2",
-      "Subject"
-    ),
-    tags$input(
-      type = "text",
-      class = "form-control",
-      name = "subject",
-      id = "subject-field",
-      required = ""
-    )
+    subject
   )
 
   message <- tags$div(
     class = "col-md-12",
-    tags$label(
-      `for` = "message-field",
-      class = "pb-2",
-      "Message"
-    ),
-    tags$textarea(
-      class = "form-control",
-      name = "message",
-      rows = "10",
-      id = "message-field",
-      required = ""
-    )
+    message
   )
 
   tags$form(
-    method = "post",
-    class = "php-email-form",
+    `hx-post` = "/contact",
+    `hx-target` = "this",
+    `hx-swap` = "outerHTML",
     `data-aos` = "fade-up",
     `data-aos-delay` = "200",
+    class = "php-email-form",
     tags$div(
       class = "row gy-4",
       name,
@@ -197,6 +248,80 @@ contact_form <- \() {
           "Send Message"
         )
       )
+    )
+  )
+}
+
+#' Default contact form
+#'
+#' @return [htmltools::tags]
+#' @export
+default_contact_form <- \() {
+  contact_form(
+    name = text_input(
+      label = "Your Name",
+      id = "name"
+    ),
+    email = text_input(
+      label = "Your Email",
+      id = "email",
+      type = "email"
+    ),
+    subject = text_input(
+      label = "Subject",
+      id = "subject"
+    ),
+    message = text_area_input(
+      label = "Message",
+      id = "message"
+    )
+  )
+}
+
+#' Success alert once message is sent
+#'
+#' @return [htmltools::tags]
+#' @export
+success_alert <- \() {
+  tags$div(
+    class = paste(
+      "alert alert-success alert-dismissible",
+      "d-flex align-items-center"
+    ),
+    role = "alert",
+    tags$i(class = "bi bi-check2-circle pe-2"),
+    tags$div(
+      "Thank you! Your message has been sent. I'll get back to you soon."
+    ),
+    tags$button(
+      type = "button",
+      class = "btn-close",
+      `data-bs-dismiss` = "alert",
+      `aria-label` = "Close"
+    )
+  )
+}
+
+#' Error alert when message is not sent
+#'
+#' @return [htmltools::tags]
+#' @export
+error_alert <- \() {
+  tags$div(
+    class = paste(
+      "alert alert-danger alert-dismissible",
+      "d-flex align-items-center"
+    ),
+    role = "alert",
+    tags$i(class = "bi bi-exclamation-triangle pe-2"),
+    tags$div(
+      "An error occurred while sending your message. Please retry."
+    ),
+    tags$button(
+      type = "button",
+      class = "btn-close",
+      `data-bs-dismiss` = "alert",
+      `aria-label` = "Close"
     )
   )
 }
