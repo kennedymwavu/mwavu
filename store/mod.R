@@ -12,4 +12,5 @@ box::use(
     toastr_error,
     toastr_success,
   ],
+  . / about[about],
 )
