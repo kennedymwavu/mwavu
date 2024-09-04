@@ -33,12 +33,16 @@ about <- \() {
     tags$ul(list_items)
   }
   details_on_left <- create_details(
-    items = c("Birthday", "Website", "Phone", "City"),
-    values = c("1 May 1995", "www.mwavu.com", "+254 721 231 292", "Nairobi, Kenya")
+    items = c("Blog", "Interests", "Hobbies"),
+    values = c(
+      "mwavu.com/blog", "Computers & Programming", "Painting, Philosophy"
+    )
   )
   details_on_right <- create_details(
-    items = c("Age", "Degree", "Email", "Freelance"),
-    values = c("30", "Master", "mwavukennedy@gmail.com", "Available")
+    items = c("Degree", "Email", "City"),
+    values = c(
+      "BSc Actuarial Science", "mwavukennedy at gmail dot com", "Nairobi, Kenya"
+    )
   )
   details <- tags$div(
     class = "row",
@@ -79,11 +83,11 @@ about <- \() {
     )
   }
   skills_on_left <- create_skills(
-    items = c("HTML", "CSS", "JavaScript"),
+    items = c("R", "REST APIs", "Docker"),
     values = c("100", "90", "75")
   )
   skills_on_right <- create_skills(
-    items = c("PHP", "WordPress/CMS", "Photoshop"),
+    items = c("Cloud Computing (Digital Ocean, GCP)", "Version Control (Git)", "Rust"),
     values = c("80", "90", 55)
   )
   skills <- tags$div(
@@ -122,8 +126,13 @@ about <- \() {
   stats <- tags$div(
     class = "row gy-4",
     make_stats(
-      items = c("Clients", "Projects", "Hours Of Support", "Workers"),
-      values = c(232, 521, 1453, 32)
+      items = c("Years Of Experience", "Clients", "Projects", "Hours Of Support"),
+      values = c(
+        as.integer(format(Sys.Date(), "%Y")) - 2020,
+        27,
+        31,
+        1453
+      )
     )
   )
 
@@ -182,12 +191,22 @@ about <- \() {
     }'
   )
   testimonial_items <- create_testimonials(
-    names = c("Saul Goodman", "Sara Wilsson", "Jena Karlis", "Matt Brandon", "John Larson"),
-    image_paths = paste0("assets/img/testimonials/testimonials-", 1:5, ".jpg"),
-    job_titles = c("CEO &amp; Founder", "Designer", "Store Owner", "Freelancer", "Entrepreneur"),
-    statements = strrep(
-      x = "Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.",
-      times = 5
+    names = c("Humphreys Wanyanga", "John Coene", "Grace Zawadi", "William Wanyonyi"),
+    image_paths = paste0(
+      "assets/img/testimonials/",
+      c(
+        "humphreys.jpeg",
+        "john.png",
+        "zawadi.jpeg",
+        "william.jpeg"
+      )
+    ),
+    job_titles = c("COO, ACTSERV", "Founder, Opifex", "Project Manager, ACTSERV", "Business Development Lead, Seven Skies"),
+    statements = c(
+      "Kennedy’s technical expertise and commitment to delivering high-quality solutions have been invaluable to our projects. His ability to solve complex problems efficiently makes him an essential part of any team.",
+      "Kennedy’s contributions to the Ambiorix framework have been outstanding. His deep understanding of the framework and innovative input have greatly enhanced its capabilities. His dedication and expertise are evident in every aspect of his work.",
+      "Working with Kennedy has been a pleasure. He’s reliable, proactive, and always goes the extra mile to ensure project success. His attention to detail and clear communication are exceptional.",
+      "Kennedy has a unique blend of technical skills and business acumen. His innovative approach and dedication to client needs have greatly contributed to our growth and success."
     )
   )
   testimonials <- tags$div(
@@ -209,7 +228,7 @@ about <- \() {
         class = "about section",
         create_section_title(
           title = "About",
-          subtitle = "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit"
+          subtitle = "I'm driven by the joy of building things that make a difference"
         ),
         tags$div(
           class = "container",
@@ -218,10 +237,10 @@ about <- \() {
           tags$div(
             class = "row gy-4 justify-content-center",
             tags$div(
-              class = "col-lg-4",
+              class = "col-lg-4 d-flex",
               tags$img(
                 src = "assets/img/profile-img.jpg",
-                class = "img-fluid",
+                class = "img-fluid object-fit-cover",
                 alt = "Kennedy Mwavu"
               )
             ),
@@ -230,14 +249,12 @@ about <- \() {
               tags$h2("Software Developer"),
               tags$p(
                 class = "fst-italic py-3",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua."
+                "I started programming in 2020, during the Covid-19 era, while in my second year at the University of Nairobi. A unit on R programming sparked a passion that I've pursued ever since, leading me to shift my focus from Actuarial Science to Software Development — and I've never looked back."
               ),
               details,
               tags$p(
                 class = "py-3",
-                "Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-              Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque."
+                "I thrive on turning complex problems into simple, elegant solutions. Whether it's automating workflows, developing web applications, or contributing to open-source projects, I approach each task with curiosity and determination. I enjoy building tools that genuinely improve users' lives."
               )
             )
           )
@@ -248,7 +265,7 @@ about <- \() {
         class = "skills section",
         create_section_title(
           title = "Skills",
-          subtitle = "Necessitatibus eius consequatur ex aliquid fuga eum qudem sint consectetur elit"
+          subtitle = "Where my expertise lies"
         ),
         tags$div(
           class = "container",
@@ -261,8 +278,8 @@ about <- \() {
         id = "stats",
         class = "stats section",
         create_section_title(
-          title = "Facts",
-          subtitle = "Necessitatibus eius consequatur ex aliquid fuga eum qudem sint consectetur elit"
+          title = "Highlights",
+          subtitle = "The numbers that tell the story of my professional path"
         ),
         tags$div(
           class = "container",
@@ -276,7 +293,7 @@ about <- \() {
         class = "testimonials section",
         create_section_title(
           title = "Testimonials",
-          subtitle = "Necessitatibus eius consequatur ex aliquid fuga eum qudem sint consectetur elit"
+          subtitle = "Hear from those I've had the pleasure of working with"
         ),
         tags$div(
           class = "container",

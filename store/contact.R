@@ -61,13 +61,13 @@ contact_details <- \() {
     info_item(
       data_aos_delay = "300",
       icon_class = "bi bi-telephone",
-      title = "Call Us",
-      description = "+254 721231292"
+      title = "Call",
+      description = "+254 721 231 292"
     ),
     info_item(
       data_aos_delay = "400",
       icon_class = "bi bi-envelope",
-      title = "Email Us",
+      title = "Email",
       description = "mwavukennedy@gmail.com"
     ),
     tags$iframe(
