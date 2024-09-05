@@ -43,10 +43,10 @@ header <- \(active = NULL) {
 #' @export
 nav <- \(active = NULL) {
   page_hrefs <- c(
-    "/", "/about", "/resume", "/services", "/portfolio", "/contact"
+    "/", "/about", "/resume", "/services", "/contact"
   )
   page_labels <- c(
-    "Home", "About", "Resume", "Services", "Portfolio", "Contact"
+    "Home", "About", "Resume", "Services", "Contact"
   )
   page_list_items <- Map(
     f = \(href, label) {
