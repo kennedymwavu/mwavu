@@ -1,7 +1,7 @@
 box::use(
   htmltools[tags, tagList],
-  .. / store / mod[resume_page = resume],
   .. / templates / path[template_path],
+  .. / store / mod[resume_page = resume],
 )
 
 #' Handle GET at '/resume'

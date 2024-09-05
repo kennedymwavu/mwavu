@@ -14,4 +14,5 @@ box::use(
   ],
   . / about[about],
   . / resume[resume],
+  . / services[services],
 )
