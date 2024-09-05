@@ -13,4 +13,5 @@ box::use(
     toastr_success,
   ],
   . / about[about],
+  . / resume[resume],
 )

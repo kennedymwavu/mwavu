@@ -8,6 +8,7 @@ box::use(
     portfolio,
     contact_get,
     contact_post,
+    download_resume,
   ],
   . / middleware / error[error_handler],
 )
@@ -23,4 +24,5 @@ Ambiorix$
   get("/portfolio", portfolio)$
   get("/contact", contact_get)$
   post("/contact", contact_post)$
+  get("/download-resume", download_resume)$
   start()

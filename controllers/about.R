@@ -1,7 +1,7 @@
 box::use(
   htmltools[tags, tagList],
   .. / store / mod[about_page = about],
-   .. / templates / path[template_path],
+  .. / templates / path[template_path],
 )
 
 #' Handle GET at '/about'

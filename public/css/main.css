@@ -734,7 +734,7 @@ section,
   color: var(--heading-color);
 }
 
-.hero .btn-get-started {
+.hero .btn-get-started, .btn-download-resume {
   color: var(--contrast-color);
   background: var(--accent-color);
   font-family: var(--heading-font);
@@ -751,6 +751,11 @@ section,
 
 .hero .btn-get-started:hover {
   background: color-mix(in srgb, var(--accent-color) 90%, white 20%);
+}
+
+.btn-download-resume:hover {
+  color: var(--contrast-color);
+  padding: 12px 35px;
 }
 
 @media (max-width: 768px) {

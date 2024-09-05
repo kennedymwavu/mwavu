@@ -1,6 +1,7 @@
 box::use(
   htmltools[tags, tagList],
   . / header[header],
+  . / create_section_title[create_section_title],
 )
 
 #' About page
@@ -8,15 +9,6 @@ box::use(
 #' @return [htmltools::tags]
 #' @export
 about <- \() {
-  create_section_title <- \(title = NULL, subtitle = NULL) {
-    tags$div(
-      class = "container section-title",
-      `data-aos` = "fade-up",
-      tags$h2(title),
-      tags$p(subtitle)
-    )
-  }
-
   create_details <- \(items, values) {
     list_items <- Map(
       f = \(item, value) {
@@ -129,7 +121,7 @@ about <- \() {
       items = c("Years Of Experience", "Clients", "Projects", "Hours Of Support"),
       values = c(
         as.integer(format(Sys.Date(), "%Y")) - 2020,
-        27,
+        17,
         31,
         1453
       )
