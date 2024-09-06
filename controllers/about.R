@@ -11,11 +11,11 @@ about <- \(req, res) {
   meta <- tagList(
     tags$meta(
       name = "description",
-      content = "Kennedy Mwavu - About"
+      content = "Kennedy Mwavu | Software Developer | About"
     ),
     tags$meta(
       name = "keywords",
-      content = "Mwavu, Kennedy, About"
+      content = "Mwavu, Kennedy, Software Developer, R Programming"
     )
   )
 

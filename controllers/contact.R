@@ -30,11 +30,11 @@ contact_get <- \(req, res) {
   meta <- tagList(
     tags$meta(
       name = "description",
-      content = "Kennedy Mwavu - Contact"
+      content = "Kennedy Mwavu | Software Developer | Contact Me"
     ),
     tags$meta(
       name = "keywords",
-      content = "Mwavu, Kennedy, Contact"
+      content = "Mwavu, Kennedy, Software Developer, R Programming"
     )
   )
 
