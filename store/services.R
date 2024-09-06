@@ -60,12 +60,12 @@ services <- \() {
     icon_class = paste0(
       "bi bi-",
       c(
-        "activity",
-        "broadcast",
+        "code-slash",
+        "laptop",
         "easel",
         "bounding-box-circles",
         "calendar4-week icon",
-        "chat-square-text"
+        "person-video3"
       )
     ),
     title = c(
