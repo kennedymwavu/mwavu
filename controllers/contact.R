@@ -1,4 +1,5 @@
 box::use(
+  mime,
   httr2[
     request,
     req_perform,
