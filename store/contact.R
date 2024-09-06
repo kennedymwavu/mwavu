@@ -60,9 +60,12 @@ contact_details <- \() {
     ),
     info_item(
       data_aos_delay = "300",
-      icon_class = "bi bi-telephone",
-      title = "Call",
-      description = "+254 721 231 292"
+      icon_class = "bi bi-linkedin",
+      title = "LinkedIn",
+      description = tags$a(
+        href = "https://www.linkedin.com/in/kennedymwavu/",
+        "linkedin.com/in/kennedymwavu"
+      )
     ),
     info_item(
       data_aos_delay = "400",
