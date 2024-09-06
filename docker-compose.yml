@@ -1,0 +1,6 @@
+services:
+  personal-website:
+    image: personal-website
+    ports:
+      - "1028:8000"
+    restart: unless-stopped
