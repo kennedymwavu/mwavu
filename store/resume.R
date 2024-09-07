@@ -9,34 +9,6 @@ box::use(
 #' @return [htmltools::tags]
 #' @export
 resume <- \() {
-  create_resume_item <- \(
-    title = NULL,
-    period = NULL,
-    institution = NULL,
-    items = NULL,
-    class = NULL
-  ) {
-    class <- c("resume-item", class)
-    title <- if (!is.null(title)) tags$h4(title)
-    period <- if (!is.null(period)) tags$h5(period)
-    institution <- if (!is.null(institution)) tags$p(tags$em(institution))
-    items <- if (!is.null(items)) {
-      tags$ul(
-        lapply(items, \(item) {
-          tags$li(item)
-        })
-      )
-    }
-
-    tags$div(
-      class = class,
-      title,
-      period,
-      institution,
-      items
-    )
-  }
-
   summary <- create_resume_item(
     title = "Kennedy Mwavu",
     institution = c(
@@ -153,5 +125,41 @@ resume <- \() {
         )
       )
     )
+  )
+}
+
+#' Create resume item
+#'
+#' @param title String. Title.
+#' @param period String. Period eg. "Sept 2018 - Sept 2022".
+#' @param institution String. Institution attended.
+#' @param items Character vector. Items to include.
+#' @param class Character vector. Classes to apply to the container div.
+#' @return [htmltools::tags]
+create_resume_item <- \(
+  title = NULL,
+  period = NULL,
+  institution = NULL,
+  items = NULL,
+  class = NULL
+) {
+  class <- c("resume-item", class)
+  title <- if (!is.null(title)) tags$h4(title)
+  period <- if (!is.null(period)) tags$h5(period)
+  institution <- if (!is.null(institution)) tags$p(tags$em(institution))
+  items <- if (!is.null(items)) {
+    tags$ul(
+      lapply(items, \(item) {
+        tags$li(item)
+      })
+    )
+  }
+
+  tags$div(
+    class = class,
+    title,
+    period,
+    institution,
+    items
   )
 }
