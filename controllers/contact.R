@@ -1,5 +1,5 @@
 box::use(
-  mime,
+  mime, # used by `ambiorix::parse_multipart()`
   httr2[
     request,
     req_perform,
