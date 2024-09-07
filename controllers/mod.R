@@ -7,6 +7,5 @@ box::use(
     download_resume,
   ],
   . / services[services],
-  . / portfolio[portfolio],
   . / contact / handlers[contact_get, contact_post],
 )

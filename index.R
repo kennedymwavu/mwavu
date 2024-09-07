@@ -5,7 +5,6 @@ box::use(
     about,
     resume,
     services,
-    portfolio,
     contact_get,
     contact_post,
     download_resume,
@@ -25,7 +24,6 @@ Ambiorix$
   get("/about", about)$
   get("/resume", resume)$
   get("/services", services)$
-  get("/portfolio", portfolio)$
   get("/contact", contact_get)$
   post("/contact", contact_post)$
   get("/download-resume", download_resume)$
