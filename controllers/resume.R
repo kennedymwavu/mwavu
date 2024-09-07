@@ -1,30 +1,22 @@
 box::use(
   htmltools[tags, tagList],
   .. / templates / path[template_path],
-  .. / store / mod[resume_page = resume],
+  .. / store / mod[
+    page_meta,
+    resume_page = resume,
+  ],
 )
 
 #' Handle GET at '/resume'
 #'
 #' @export
 resume <- \(req, res) {
-  meta <- tagList(
-    tags$meta(
-      name = "description",
-      content = "Kennedy Mwavu | Software Developer | Resume"
-    ),
-    tags$meta(
-      name = "keywords",
-      content = "Mwavu, Kennedy, Software Developer R Programming"
-    )
-  )
-
   res$render(
     template_path("page.html"),
     list(
       title = "Kennedy Mwavu - Resume",
       content = resume_page(),
-      metatags = meta
+      metatags = page_meta(label = "Resume")
     )
   )
 }

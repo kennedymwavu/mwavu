@@ -10,6 +10,7 @@ box::use(
     validate_subject,
   ],
   .. / .. / store / mod[
+    page_meta,
     contact_page = contact,
     contact_form,
     toastr_error,
@@ -23,23 +24,12 @@ box::use(
 #'
 #' @export
 contact_get <- \(req, res) {
-  meta <- tagList(
-    tags$meta(
-      name = "description",
-      content = "Kennedy Mwavu | Software Developer | Contact Me"
-    ),
-    tags$meta(
-      name = "keywords",
-      content = "Mwavu, Kennedy, Software Developer, R Programming"
-    )
-  )
-
   res$render(
     template_path("page.html"),
     list(
       title = "Kennedy Mwavu - Contact",
       content = contact_page(),
-      metatags = meta
+      metatags = page_meta(label = "Contact Me")
     )
   )
 }
