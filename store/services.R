@@ -9,42 +9,6 @@ box::use(
 #' @return [htmltools::tags]
 #' @export
 services <- \() {
-  create_service_item <- \(
-    data_aos_delay = "100",
-    item_color = "",
-    svg_path_d = "",
-    icon_class = "",
-    title = NULL,
-    explanation = NULL
-  ) {
-    tags$div(
-      class = "col-lg-4 col-md-6",
-      `data-aos` = "fade-up",
-      `data-aos-delay` = data_aos_delay,
-      tags$div(
-        class = sprintf("service-item item-%s position-relative", item_color),
-        tags$div(
-          class = "icon",
-          tags$svg(
-            width = "100",
-            height = "100",
-            viewBox = "0 0 600 600",
-            xmlns = "http://www.w3.org/2000/svg",
-            tags$path(
-              stroke = "none",
-              `stroke-width` = "0",
-              fill = "#f5f5f5",
-              d = svg_path_d
-            )
-          ),
-          tags$i(class = icon_class)
-        ),
-        tags$h3(title),
-        tags$p(explanation)
-      )
-    )
-  }
-
   service_items <- Map(
     f = create_service_item,
     data_aos_delay = 1:6 * 100,
@@ -105,6 +69,53 @@ services <- \() {
           )
         )
       )
+    )
+  )
+}
+
+#' Create service item
+#'
+#' @param data_aos_delay Numeric vector. `data-aos-delay` attribute of the
+#' container div.
+#' @param item_color String. Color to use for the item. The colors
+#' are defined/customized in `main.css`.
+#' @param svg_path_d String. `svg-path-d` attribute of the svg to use.
+#' @param icon_class String. Class of the icon to use.
+#' @param title String. Title of the service.
+#' @param explanation String. Explanation of the service.
+#' @return [htmltools::tags]
+create_service_item <- \(
+  data_aos_delay = "100",
+  item_color = "",
+  svg_path_d = "",
+  icon_class = "",
+  title = NULL,
+  explanation = NULL
+) {
+  tags$div(
+    class = "col-lg-4 col-md-6",
+    `data-aos` = "fade-up",
+    `data-aos-delay` = data_aos_delay,
+    tags$div(
+      class = sprintf("service-item item-%s position-relative", item_color),
+      tags$div(
+        class = "icon",
+        tags$svg(
+          width = "100",
+          height = "100",
+          viewBox = "0 0 600 600",
+          xmlns = "http://www.w3.org/2000/svg",
+          tags$path(
+            stroke = "none",
+            `stroke-width` = "0",
+            fill = "#f5f5f5",
+            d = svg_path_d
+          )
+        ),
+        tags$i(class = icon_class)
+      ),
+      tags$h3(title),
+      tags$p(explanation)
     )
   )
 }

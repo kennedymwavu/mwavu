@@ -9,21 +9,6 @@ box::use(
 #' @return [htmltools::tags]
 #' @export
 about <- \() {
-  create_details <- \(items, values) {
-    list_items <- Map(
-      f = \(item, value) {
-        tags$li(
-          tags$i(class = "bi bi-chevron-right"),
-          tags$strong(item, ":"),
-          tags$span(value)
-        )
-      },
-      items,
-      values
-    )
-
-    tags$ul(list_items)
-  }
   details_on_left <- create_details(
     items = c("Blog", "Interests", "Hobbies"),
     values = c(
@@ -48,32 +33,6 @@ about <- \() {
     )
   )
 
-  create_skills <- \(items, values) {
-    Map(
-      f = \(item, value) {
-        tags$div(
-          class = "progress",
-          tags$span(
-            class = "skill",
-            tags$span(item),
-            tags$i(class = "val", paste0(value, "%"))
-          ),
-          tags$div(
-            class = "progress-bar-wrap",
-            tags$div(
-              class = "progress-bar",
-              role = "progressbar",
-              `aria-valuenow` = value,
-              `aria-valuemin` = "0",
-              `aria-valuemax` = "100"
-            )
-          )
-        )
-      },
-      items,
-      values
-    )
-  }
   skills_on_left <- create_skills(
     items = c("R", "REST APIs", "Docker"),
     values = c("100", "90", "75")
@@ -94,27 +53,6 @@ about <- \() {
     )
   )
 
-  make_stats <- \(items, values) {
-    Map(
-      f = \(item, value) {
-        tags$div(
-          class = "col-lg-3 col-md-6",
-          tags$div(
-            class = "stats-item text-center w-100 h-100",
-            tags$span(
-              `data-purecounter-start` = "0",
-              `data-purecounter-end` = value,
-              `data-purecounter-duration` = 1,
-              class = "purecounter",
-            ),
-            tags$p(item)
-          )
-        )
-      },
-      items,
-      values
-    )
-  }
   stats <- tags$div(
     class = "row gy-4",
     make_stats(
@@ -127,41 +65,6 @@ about <- \() {
       )
     )
   )
-
-  create_testimonials <- \(names, image_paths, job_titles, statements) {
-    Map(
-      f = \(name, image_path, job_title, statement) {
-        tags$div(
-          class = "swiper-slide",
-          tags$div(
-            class = "testimonial-item",
-            tags$img(
-              src = image_path,
-              class = "testimonial-img",
-              alt = ""
-            ),
-            tags$h3(name),
-            tags$h4(job_title),
-            tags$div(
-              class = "stars",
-              lapply(1:5, \(i) {
-                tags$i(class = "bi bi-star-fill")
-              })
-            ),
-            tags$p(
-              tags$i(class = "bi bi-quote quote-icon-left"),
-              tags$span(statement),
-              tags$i(class = "bi bi-quote quote-icon-right")
-            )
-          )
-        )
-      },
-      names,
-      image_paths,
-      job_titles,
-      statements
-    )
-  }
 
   swiper_config_script <- tags$script(
     type = "application/json",
@@ -295,5 +198,127 @@ about <- \() {
         )
       )
     )
+  )
+}
+
+#' Create about page details
+#'
+#' @param items Character vector, list. Label of the details eg. "Interests".
+#' @param values Character vector, list. Contents of `items` eg. "Programming"
+#' @return [htmltools::tags]
+create_details <- \(items, values) {
+  list_items <- Map(
+    f = \(item, value) {
+      tags$li(
+        tags$i(class = "bi bi-chevron-right"),
+        tags$strong(item, ":"),
+        tags$span(value)
+      )
+    },
+    items,
+    values
+  )
+
+  tags$ul(list_items)
+}
+
+#' Create skills
+#'
+#' @param items Character vector, list. Labels eg. "REST APIs".
+#' @param values Integers. Rating out of 100.
+#' @return [htmltools::tags]
+create_skills <- \(items, values) {
+  Map(
+    f = \(item, value) {
+      tags$div(
+        class = "progress",
+        tags$span(
+          class = "skill",
+          tags$span(item),
+          tags$i(class = "val", paste0(value, "%"))
+        ),
+        tags$div(
+          class = "progress-bar-wrap",
+          tags$div(
+            class = "progress-bar",
+            role = "progressbar",
+            `aria-valuenow` = value,
+            `aria-valuemin` = "0",
+            `aria-valuemax` = "100"
+          )
+        )
+      )
+    },
+    items,
+    values
+  )
+}
+
+#' Make stats items
+#'
+#' @param items Character vector, list. Labels eg. "Years of Experience".
+#' @param values Character vector, list. Values corresponding to `items`.
+#' @return [htmltools::tags]
+make_stats <- \(items, values) {
+  Map(
+    f = \(item, value) {
+      tags$div(
+        class = "col-lg-3 col-md-6",
+        tags$div(
+          class = "stats-item text-center w-100 h-100",
+          tags$span(
+            `data-purecounter-start` = "0",
+            `data-purecounter-end` = value,
+            `data-purecounter-duration` = 1,
+            class = "purecounter",
+          ),
+          tags$p(item)
+        )
+      )
+    },
+    items,
+    values
+  )
+}
+
+#' Create testimonials
+#'
+#' @param names Character vector. Names of people giving testimonials.
+#' @param image_paths Character vector. Paths to the images of those people.
+#' @param job_titles Character vector. Their job titles.
+#' @param statements Character vector. The testimonials.
+#' @return [htmltools::tags]
+create_testimonials <- \(names, image_paths, job_titles, statements) {
+  Map(
+    f = \(name, image_path, job_title, statement) {
+      tags$div(
+        class = "swiper-slide",
+        tags$div(
+          class = "testimonial-item",
+          tags$img(
+            src = image_path,
+            class = "testimonial-img",
+            alt = ""
+          ),
+          tags$h3(name),
+          tags$h4(job_title),
+          tags$div(
+            class = "stars",
+            lapply(1:5, \(i) {
+              tags$i(class = "bi bi-star-fill")
+            })
+          ),
+          tags$p(
+            tags$i(class = "bi bi-quote quote-icon-left"),
+            tags$span(statement),
+            tags$i(class = "bi bi-quote quote-icon-right")
+          )
+        )
+      )
+    },
+    names,
+    image_paths,
+    job_titles,
+    statements
   )
 }

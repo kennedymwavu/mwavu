@@ -1,7 +1,8 @@
 box::use(
   htmltools[tags],
-  .. / helpers / operators[`%||%`]
+  .. / helpers / mod[`%||%`]
 )
+
 #' Toastr
 #'
 #' @param type String. Type of the toast. Valid options are:
