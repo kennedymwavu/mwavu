@@ -12,7 +12,7 @@ about <- \() {
   details_on_left <- create_details(
     items = c("Blog", "Interests", "Hobbies"),
     values = c(
-      "mwavu.com/blog", "Computers & Programming", "Painting, Philosophy"
+      "blog.mwavu.com", "Computers & Programming", "Painting, Philosophy"
     )
   )
   details_on_right <- create_details(
@@ -149,7 +149,7 @@ about <- \() {
               details,
               tags$p(
                 class = "py-3",
-                "I thrive on turning complex problems into simple, elegant solutions. Whether it's automating workflows, developing web applications, or contributing to open-source projects, I approach each task with curiosity and determination. I enjoy building tools that genuinely improve users' lives."
+                "Whether it's automating workflows, developing web applications, or contributing to open-source projects, I enjoy building tools that genuinely improve users' lives."
               )
             )
           )
