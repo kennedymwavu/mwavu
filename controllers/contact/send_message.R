@@ -1,18 +1,14 @@
 box::use(
-  httr2[
-    request,
-    req_perform,
-    req_url_path,
-    last_response,
-    req_body_form,
-    req_auth_basic,
-    resp_body_json,
+  emayili[
+    server,
+    envelope,
   ],
-  .. / .. / helpers / mod[
-    get_email,
-    get_mg_api_key,
-    get_mg_sending_domain,
-  ]
+  .. /
+    .. /
+    helpers /
+    mod[
+      get_env_var,
+    ]
 )
 
 #' Send message via email
@@ -31,32 +27,26 @@ send_message <- \(
   subject,
   message
 ) {
-  message <- sprintf(
-    "From: %s\nEmail: %s\nMessage:\n%s",
-    name,
-    email,
-    message
+  email <- envelope(
+    to = get_env_var("EMAIL"),
+    from = get_env_var("EMAIL"),
+    reply = email,
+    subject = subject,
+    text = message
   )
-  path <- sprintf("/v3/%s/messages", get_mg_sending_domain())
-  from <- sprintf("%s <mailgun@%s>", name, get_mg_sending_domain())
 
-  req <- request(base_url = "https://api.mailgun.net") |>
-    req_url_path(path) |>
-    req_body_form(
-      from = from,
-      to = get_email(),
-      subject = subject,
-      text = message
-    ) |>
-    req_auth_basic(username = "api", password = get_mg_api_key())
+  smtp <- server(
+    host = get_env_var("HOST"),
+    port = as.integer(get_env_var("PORT")),
+    use_ssl = TRUE,
+    username = get_env_var("USERNAME"),
+    password = get_env_var("PASSWORD")
+  )
 
   tryCatch(
     expr = {
-      out <- req |>
-        req_perform() |>
-        resp_body_json()
-      out$ok <- TRUE
-      out
+      out <- smtp(email, verbose = TRUE)
+      list(ok = TRUE)
     },
     error = \(e) {
       print(conditionMessage(e))
