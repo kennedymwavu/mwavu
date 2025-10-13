@@ -1,9 +1,11 @@
 box::use(
   htmltools[tags, tagList],
-  .. / store / mod[
-    page_meta,
-    about_page = about,
-  ],
+  .. /
+    store /
+    mod[
+      page_meta,
+      about_page = about,
+    ],
   .. / templates / path[template_path],
 )
 

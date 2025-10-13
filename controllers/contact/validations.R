@@ -1,9 +1,12 @@
 box::use(
   htmltools[tags],
-  .. / .. / store / mod[
-    text_input,
-    text_area_input,
-  ],
+  .. /
+    .. /
+    store /
+    mod[
+      text_input,
+      text_area_input,
+    ],
   .. / .. / helpers / operators[`%||%`],
 )
 

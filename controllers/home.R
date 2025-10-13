@@ -1,10 +1,12 @@
 box::use(
   htmltools[tags, tagList],
   .. / templates / path[template_path],
-  .. / store / mod[
-    page_meta,
-    home_page = home,
-  ]
+  .. /
+    store /
+    mod[
+      page_meta,
+      home_page = home,
+    ]
 )
 
 #' Handle GET at '/'

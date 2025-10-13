@@ -11,6 +11,13 @@
     text-align: center;
     transition: 0.3s;
     border-radius: 5px;
+    text-decoration: none;
+    color: inherit;
+
+    &:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--accent-color), transparent 50%);
+      outline-offset: 6px;
+    }
 
     .icon {
       margin: 0 auto;
@@ -149,6 +156,113 @@
         path {
           fill: #f3268c;
         }
+      }
+    }
+  }
+}
+
+.service-detail {
+  .service-detail__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    i {
+      transition: transform 0.2s ease;
+    }
+
+    &:hover i,
+    &:focus i {
+      transform: translateX(-4px);
+    }
+  }
+
+  .service-detail__card {
+    background: var(--surface-color);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0px 30px 80px rgba(0, 0, 0, 0.08);
+    border: 1px solid color-mix(in srgb, var(--default-color) 10%, transparent);
+    display: grid;
+    gap: 1.5rem;
+
+    &.item-cyan .icon i {
+      color: #0dcaf0;
+    }
+
+    &.item-orange .icon i {
+      color: #fd7e14;
+    }
+
+    &.item-teal .icon i {
+      color: #20c997;
+    }
+
+    &.item-red .icon i {
+      color: #df1529;
+    }
+
+    &.item-indigo .icon i {
+      color: #6610f2;
+    }
+
+    &.item-pink .icon i {
+      color: #f3268c;
+    }
+  }
+
+  .service-detail__icon {
+    display: flex;
+    justify-content: center;
+
+    .icon {
+      margin: 0;
+    }
+  }
+
+  .service-detail__summary {
+    font-size: 1.1rem;
+    color: color-mix(in srgb, var(--default-color), transparent 15%);
+  }
+
+  .service-detail__list {
+    background: color-mix(in srgb, var(--accent-color) 6%, transparent);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--default-color) 8%, transparent);
+    display: grid;
+    gap: 1rem;
+
+    h4 {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.95rem;
+      color: var(--heading-color);
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+
+      &::before {
+        content: "•";
+        color: var(--accent-color);
+        font-size: 1.25rem;
+        line-height: 1;
+        margin-top: 0.1rem;
       }
     }
   }
