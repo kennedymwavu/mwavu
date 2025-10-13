@@ -45,7 +45,7 @@ send_message <- \(
 
   tryCatch(
     expr = {
-      out <- smtp(email, verbose = TRUE)
+      out <- smtp(email, verbose = FALSE)
       list(ok = TRUE)
     },
     error = \(e) {
