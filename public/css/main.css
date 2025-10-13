@@ -3,9 +3,10 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --default-font:
+    "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Raleway", sans-serif;
   --nav-font: "Poppins", sans-serif;
 }
@@ -725,7 +726,8 @@ section,
   color: var(--heading-color);
 }
 
-.hero .btn-get-started, .btn-download-resume {
+.hero .btn-get-started,
+.btn-download-resume {
   color: var(--contrast-color);
   background: var(--accent-color);
   font-family: var(--heading-font);
@@ -802,12 +804,15 @@ section,
   border-radius: 16px;
   padding: 1rem 1.25rem;
   min-height: 86px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .skills .skills-grid .skill-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 1rem 2rem -1rem color-mix(in srgb, var(--default-color) 60%, transparent);
+  box-shadow: 0 1rem 2rem -1rem
+    color-mix(in srgb, var(--default-color) 60%, transparent);
 }
 
 .skills .skills-grid .skill-card__logo {
@@ -1185,6 +1190,11 @@ section,
   border: 1px solid color-mix(in srgb, var(--default-color) 10%, transparent);
   display: grid;
   gap: 1.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.service-detail .service-detail__card:hover {
+  box-shadow: 0px 15px 60px rgba(0, 0, 0, 0.12);
 }
 
 .service-detail .service-detail__card.item-cyan .icon i {
@@ -1211,13 +1221,126 @@ section,
   color: #f3268c;
 }
 
+.service-detail .service-detail__card.item-cyan:hover .icon,
+.service-detail .service-detail__card.item-cyan:focus-within .icon {
+  color: inherit;
+}
+
+.service-detail .service-detail__card.item-cyan:hover .icon i,
+.service-detail .service-detail__card.item-cyan:focus-within .icon i {
+  color: #fff;
+}
+
+.service-detail .service-detail__card.item-cyan:hover .icon path,
+.service-detail .service-detail__card.item-cyan:focus-within .icon path {
+  fill: #0dcaf0;
+}
+
+.service-detail .service-detail__card.item-orange:hover .icon,
+.service-detail .service-detail__card.item-orange:focus-within .icon {
+  color: inherit;
+}
+
+.service-detail .service-detail__card.item-orange:hover .icon i,
+.service-detail .service-detail__card.item-orange:focus-within .icon i {
+  color: #fff;
+}
+
+.service-detail .service-detail__card.item-orange:hover .icon path,
+.service-detail .service-detail__card.item-orange:focus-within .icon path {
+  fill: #fd7e14;
+}
+
+.service-detail .service-detail__card.item-teal:hover .icon,
+.service-detail .service-detail__card.item-teal:focus-within .icon {
+  color: inherit;
+}
+
+.service-detail .service-detail__card.item-teal:hover .icon i,
+.service-detail .service-detail__card.item-teal:focus-within .icon i {
+  color: #fff;
+}
+
+.service-detail .service-detail__card.item-teal:hover .icon path,
+.service-detail .service-detail__card.item-teal:focus-within .icon path {
+  fill: #20c997;
+}
+
+.service-detail .service-detail__card.item-red:hover .icon,
+.service-detail .service-detail__card.item-red:focus-within .icon {
+  color: inherit;
+}
+
+.service-detail .service-detail__card.item-red:hover .icon i,
+.service-detail .service-detail__card.item-red:focus-within .icon i {
+  color: #fff;
+}
+
+.service-detail .service-detail__card.item-red:hover .icon path,
+.service-detail .service-detail__card.item-red:focus-within .icon path {
+  fill: #df1529;
+}
+
+.service-detail .service-detail__card.item-indigo:hover .icon,
+.service-detail .service-detail__card.item-indigo:focus-within .icon {
+  color: inherit;
+}
+
+.service-detail .service-detail__card.item-indigo:hover .icon i,
+.service-detail .service-detail__card.item-indigo:focus-within .icon i {
+  color: #fff;
+}
+
+.service-detail .service-detail__card.item-indigo:hover .icon path,
+.service-detail .service-detail__card.item-indigo:focus-within .icon path {
+  fill: #6610f2;
+}
+
+.service-detail .service-detail__card.item-pink:hover .icon,
+.service-detail .service-detail__card.item-pink:focus-within .icon {
+  color: inherit;
+}
+
+.service-detail .service-detail__card.item-pink:hover .icon i,
+.service-detail .service-detail__card.item-pink:focus-within .icon i {
+  color: #fff;
+}
+
+.service-detail .service-detail__card.item-pink:hover .icon path,
+.service-detail .service-detail__card.item-pink:focus-within .icon path {
+  fill: #f3268c;
+}
+
 .service-detail .service-detail__icon {
   display: flex;
   justify-content: center;
 }
 
 .service-detail .service-detail__icon .icon {
-  margin: 0;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.service-detail .service-detail__icon .icon i {
+  font-size: 36px;
+  position: relative;
+  transition: 0.5s;
+}
+
+.service-detail .service-detail__icon .icon svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.service-detail .service-detail__icon .icon svg path {
+  fill: color-mix(in srgb, var(--default-color), transparent 95%);
+  transition: 0.5s;
 }
 
 .service-detail .service-detail__summary {

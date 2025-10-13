@@ -228,7 +228,7 @@ create_skills <- \(items, logos) {
   Map(
     f = \(item, logo) {
       tags$div(
-        class = "col-6 col-md-4 col-lg-3",
+        class = "col-12 col-md-4 col-lg-3",
         tags$div(
           class = "skill-card d-flex align-items-center gap-3",
           tags$div(
