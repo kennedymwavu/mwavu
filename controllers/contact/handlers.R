@@ -3,20 +3,24 @@ box::use(
   htmltools[tags, tagList],
   ambiorix[parse_multipart],
   . / send_message[send_message],
-  . / validations[
-    validate_name,
-    validate_email,
-    validate_message,
-    validate_subject,
-  ],
-  .. / .. / store / mod[
-    page_meta,
-    contact_page = contact,
-    contact_form,
-    toastr_error,
-    toastr_success,
-    default_contact_form,
-  ],
+  . /
+    validations[
+      validate_name,
+      validate_email,
+      validate_message,
+      validate_subject,
+    ],
+  .. /
+    .. /
+    store /
+    mod[
+      page_meta,
+      contact_page = contact,
+      contact_form,
+      toastr_error,
+      toastr_success,
+      default_contact_form,
+    ],
   .. / .. / templates / path[template_path],
 )
 
@@ -87,10 +91,12 @@ contact_post <- \(req, res) {
     )
   }
 
+  msg <- sprintf(
+    "Thank you, %s! Your message has been sent. I'll get back to you soon.",
+    name$value
+  )
   response <- container(
-    toastr_success(
-      msg = "Thank you! Your message has been sent. I'll get back to you soon."
-    ),
+    toastr_success(msg = msg),
     default_contact_form()
   )
 
