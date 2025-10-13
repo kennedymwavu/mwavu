@@ -2,11 +2,11 @@
 
 Made with ❤️ using Ambiorix
 
-# Prerequisites
+## Prerequisites
 
 - R >= 4.1.0
 
-# Installation
+## Installation
 
 1. Clone the repo and `cd` into it:
 
@@ -32,7 +32,7 @@ Made with ❤️ using Ambiorix
 
    The `-e` flag tells R to execute that expression and exit.
 
-# Run app
+## Run app
 
 ```r
 Rscript index.R
@@ -40,36 +40,49 @@ Rscript index.R
 
 Then visit [localhost:8000](http://localhost:8000/) to view the app.
 
-# Contact page messages
+## Contact page messages
 
-I have used [mailgun](https://www.mailgun.com/) to forward messages entered in
-the contact page form to my email.
+I have used Namecheap's [Private Email](https://privateemail.com/)
+to forward the messages entered in the contact form
+to my email.
 
-If you need the form to work you will have to:
+You can use whichever mail server you prefer, but if
+you need the form to work as-is, you will have to:
 
-1. Create a [mailgun account](https://www.mailgun.com/), add a sending domain,
-   and create an API key.
-1. Add these variables to your `.Renviron`:
+1. Get a [private email subscription](https://www.namecheap.com/hosting/email/) from namecheap.
+2. Create a mailbox eg. <you@your-domain.com>
+3. Add these variables to your `.Renviron`:
 
-   ```r
-   MAILGUN_API_KEY = your-mailgun-api-key
-   MAILGUN_SENDING_DOMAIN = your-mailgun-sending-domain
-   EMAIL = your-personal-email
-   ```
+```r
+# do not change these:
+PORT = 465
+HOST =  mail.privateemail.com
+
+# fill these:
+EMAIL = you@your-domain.com
+USERNAME = you@your-domain.com
+PASSWORD = your-strong-mailbox-password
+```
 
 # Docker
 
 - Build the docker image:
+
   ```bash
   docker build -t personal-website .
   ```
+
 - Run the services via docker compose:
+
   ```bash
   docker compose up -d
   ```
+
   This will run the app on port 1028 of the host machine, so you will view it
   at [localhost:1028](http://localhost:1028/)
+
 - To stop the services do:
+
   ```bash
   docker compose down
   ```
