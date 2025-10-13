@@ -67,24 +67,6 @@ about <- \() {
     create_skills(skill_names, skill_logos)
   )
 
-  stats <- tags$div(
-    class = "row gy-4",
-    make_stats(
-      items = c(
-        "Years Of Experience",
-        "Clients",
-        "Projects",
-        "Hours Of Support"
-      ),
-      values = c(
-        as.integer(format(Sys.Date(), "%Y")) - 2020,
-        17,
-        31,
-        1453
-      )
-    )
-  )
-
   swiper_config_script <- tags$script(
     type = "application/json",
     class = "swiper-config",
@@ -106,29 +88,29 @@ about <- \() {
   )
   testimonial_items <- create_testimonials(
     names = c(
-      "Humphreys Wanyanga",
       "John Coene",
+      "Humphreys Wanyanga",
       "Grace Zawadi",
       "William Wanyonyi"
     ),
     image_paths = paste0(
       "assets/img/testimonials/",
       c(
-        "humphreys.jpeg",
         "john.png",
+        "humphreys.jpeg",
         "zawadi.jpeg",
         "william.jpeg"
       )
     ),
     job_titles = c(
-      "COO, ACTSERV",
       "Founder, Opifex",
+      "COO, ACTSERV",
       "Project Manager, ACTSERV",
       "Business Development Lead, Seven Skies"
     ),
     statements = c(
-      "Kennedy’s technical expertise and commitment to delivering high-quality solutions have been invaluable to our projects. His ability to solve complex problems efficiently makes him an essential part of any team.",
       "Kennedy’s contributions to the Ambiorix framework have been outstanding. His deep understanding of the framework and innovative input have greatly enhanced its capabilities. His dedication and expertise are evident in every aspect of his work.",
+      "Kennedy’s technical expertise and commitment to delivering high-quality solutions have been invaluable to our projects. His ability to solve complex problems efficiently makes him an essential part of any team.",
       "Working with Kennedy has been a pleasure. He’s reliable, proactive, and always goes the extra mile to ensure project success. His attention to detail and clear communication are exceptional.",
       "Kennedy has a unique blend of technical skills and business acumen. His innovative approach and dedication to client needs have greatly contributed to our growth and success."
     )
@@ -196,20 +178,6 @@ about <- \() {
           `data-aos` = "fade-up",
           `data-aos-delay` = "100",
           skills
-        )
-      ),
-      tags$section(
-        id = "stats",
-        class = "stats section",
-        create_section_title(
-          title = "Highlights",
-          subtitle = "The numbers that tell the story of my professional path"
-        ),
-        tags$div(
-          class = "container",
-          `data-aos` = "fade-up",
-          `data-aos-delay` = "100",
-          stats
         )
       ),
       tags$section(
