@@ -40,28 +40,31 @@ about <- \() {
     )
   )
 
-  skills_on_left <- create_skills(
-    items = c("R", "REST APIs", "Docker"),
-    values = c("100", "90", "75")
+  skill_names <- c(
+    "R",
+    "REST APIs",
+    "Docker",
+    "DigitalOcean",
+    "Google Cloud",
+    "Git",
+    "JavaScript"
   )
-  skills_on_right <- create_skills(
-    items = c(
-      "Cloud Computing (Digital Ocean, GCP)",
-      "Version Control (Git)",
-      "Rust"
-    ),
-    values = c("80", "90", 55)
-  )
-  skills <- tags$div(
-    class = "row skills-content skills-animation",
-    tags$div(
-      class = "col-lg-6",
-      skills_on_left
-    ),
-    tags$div(
-      class = "col-lg-6",
-      skills_on_right
+  skill_logos <- paste0(
+    "assets/img/skills/",
+    c(
+      "r.svg",
+      "openapi.svg",
+      "docker.svg",
+      "digitalocean.svg",
+      "googlecloud.svg",
+      "git.svg",
+      "javascript.svg"
     )
+  )
+
+  skills <- tags$div(
+    class = "row g-4 skills-grid",
+    create_skills(skill_names, skill_logos)
   )
 
   stats <- tags$div(
@@ -251,32 +254,32 @@ create_details <- \(items, values) {
 #' Create skills
 #'
 #' @param items Character vector, list. Labels eg. "REST APIs".
-#' @param values Integers. Rating out of 100.
+#' @param logos Character vector. Paths to logo images.
 #' @return [htmltools::tags]
-create_skills <- \(items, values) {
+create_skills <- \(items, logos) {
   Map(
-    f = \(item, value) {
+    f = \(item, logo) {
       tags$div(
-        class = "progress",
-        tags$span(
-          class = "skill",
-          tags$span(item),
-          tags$i(class = "val", paste0(value, "%"))
-        ),
+        class = "col-6 col-md-4 col-lg-3",
         tags$div(
-          class = "progress-bar-wrap",
+          class = "skill-card d-flex align-items-center gap-3",
           tags$div(
-            class = "progress-bar",
-            role = "progressbar",
-            `aria-valuenow` = value,
-            `aria-valuemin` = "0",
-            `aria-valuemax` = "100"
+            class = "skill-card__logo d-flex align-items-center justify-content-center",
+            tags$img(
+              src = logo,
+              alt = item,
+              class = "img-fluid"
+            )
+          ),
+          tags$span(
+            class = "skill-card__label text-uppercase fw-semibold",
+            item
           )
         )
       )
     },
     items,
-    values
+    logos
   )
 }
 
