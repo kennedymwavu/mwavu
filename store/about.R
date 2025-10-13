@@ -11,14 +11,21 @@ box::use(
 about <- \() {
   details_on_left <- create_details(
     items = c("Blog", "Interests", "Hobbies"),
-    values = c(
-      "blog.mwavu.com", "Computers & Programming", "Painting, Philosophy"
+    values = list(
+      tags$a(
+        href = "https://blog.mwavu.com/",
+        target = "_blank",
+        "blog.mwavu.com"
+      ),
+      "Computers & Programming",
+      "Painting, Philosophy"
     )
   )
   details_on_right <- create_details(
-    items = c("Degree", "Email", "City"),
+    items = c("Degree", "City"),
     values = c(
-      "BSc Actuarial Science", "mwavukennedy at gmail dot com", "Nairobi, Kenya"
+      "BSc Actuarial Science",
+      "Nairobi, Kenya"
     )
   )
   details <- tags$div(
@@ -38,7 +45,11 @@ about <- \() {
     values = c("100", "90", "75")
   )
   skills_on_right <- create_skills(
-    items = c("Cloud Computing (Digital Ocean, GCP)", "Version Control (Git)", "Rust"),
+    items = c(
+      "Cloud Computing (Digital Ocean, GCP)",
+      "Version Control (Git)",
+      "Rust"
+    ),
     values = c("80", "90", 55)
   )
   skills <- tags$div(
@@ -56,7 +67,12 @@ about <- \() {
   stats <- tags$div(
     class = "row gy-4",
     make_stats(
-      items = c("Years Of Experience", "Clients", "Projects", "Hours Of Support"),
+      items = c(
+        "Years Of Experience",
+        "Clients",
+        "Projects",
+        "Hours Of Support"
+      ),
       values = c(
         as.integer(format(Sys.Date(), "%Y")) - 2020,
         17,
@@ -86,7 +102,12 @@ about <- \() {
     }'
   )
   testimonial_items <- create_testimonials(
-    names = c("Humphreys Wanyanga", "John Coene", "Grace Zawadi", "William Wanyonyi"),
+    names = c(
+      "Humphreys Wanyanga",
+      "John Coene",
+      "Grace Zawadi",
+      "William Wanyonyi"
+    ),
     image_paths = paste0(
       "assets/img/testimonials/",
       c(
@@ -96,7 +117,12 @@ about <- \() {
         "william.jpeg"
       )
     ),
-    job_titles = c("COO, ACTSERV", "Founder, Opifex", "Project Manager, ACTSERV", "Business Development Lead, Seven Skies"),
+    job_titles = c(
+      "COO, ACTSERV",
+      "Founder, Opifex",
+      "Project Manager, ACTSERV",
+      "Business Development Lead, Seven Skies"
+    ),
     statements = c(
       "Kennedy’s technical expertise and commitment to delivering high-quality solutions have been invaluable to our projects. His ability to solve complex problems efficiently makes him an essential part of any team.",
       "Kennedy’s contributions to the Ambiorix framework have been outstanding. His deep understanding of the framework and innovative input have greatly enhanced its capabilities. His dedication and expertise are evident in every aspect of his work.",
@@ -123,7 +149,7 @@ about <- \() {
         class = "about section",
         create_section_title(
           title = "About",
-          subtitle = "I'm driven by the joy of building things that make a difference"
+          subtitle = "I write R for fun & profit."
         ),
         tags$div(
           class = "container",
@@ -134,7 +160,7 @@ about <- \() {
             tags$div(
               class = "col-lg-4 d-flex",
               tags$img(
-                src = "assets/img/profile-img.jpg",
+                src = "assets/img/me.jpeg",
                 class = "img-fluid object-fit-cover",
                 alt = "Kennedy Mwavu"
               )
