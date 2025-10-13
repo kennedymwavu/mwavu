@@ -14,7 +14,6 @@ box::use(
 #' Send message via email
 #'
 #' @details This forwards the entered message to my inbox
-#' @param name String. Name of sender.
 #' @param email String. Email of sender.
 #' @param subject String. Email subject.
 #' @param message String. Message.
@@ -22,7 +21,6 @@ box::use(
 #' - `ok`: Logical. Was message forwarded to my inbox successfully?
 #' @export
 send_message <- \(
-  name,
   email,
   subject,
   message
