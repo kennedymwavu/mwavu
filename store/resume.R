@@ -15,7 +15,7 @@ resume <- \() {
       "I'm always aiming to make a tangible impact through my work. I seek out challenges that blend analytical thinking with creative problem-solving."
     ),
     items = c(
-      "Programming Languages: R, Rust",
+      "Programming Languages: R, JavaScript",
       "Version Control: Git, GitHub",
       "APIs: RESTful API design & development",
       "Containers: Docker",
@@ -44,7 +44,7 @@ resume <- \() {
 
   actserv <- create_resume_item(
     title = "Software Developer",
-    period = "July 2021 - Present",
+    period = "July 2021 - March 2025",
     institution = "Actuarial Services (EA) Ltd",
     items = c(
       "Revolutionized the efficiency of runoff triangle processing, cutting processing time from 2 hours to 10 seconds. This breakthrough significantly boosted analytical productivity and accuracy for client projects.",
