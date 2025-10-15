@@ -18,7 +18,7 @@ contact <- \() {
           class = "container section-title",
           `data-aos` = "fade-up",
           tags$h2("Contact"),
-          tags$p("Ideas don't build themselves. Let's talk.")
+          tags$p("Your idea deserves a stage. I’ll help set it.")
         ),
         tags$div(
           class = "container",
