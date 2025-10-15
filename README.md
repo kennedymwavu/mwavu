@@ -40,28 +40,22 @@ Rscript index.R
 
 Then visit [localhost:8000](http://localhost:8000/) to view the app.
 
-## Contact page messages
+## Contact Page Messages
 
-I have used Namecheap's [Private Email](https://privateemail.com/)
+I have used [postmark](https://postmarkapp.com/)
 to forward the messages entered in the contact form
 to my email.
 
 You can use whichever mail server you prefer, but if
 you need the form to work as-is, you will have to:
 
-1. Get a [private email subscription](https://www.namecheap.com/hosting/email/) from namecheap.
-2. Create a mailbox eg. <you@your-domain.com>
-3. Add these variables to your `.Renviron`:
+1. Have a mailbox specific to your domain eg. <you@your-domain.com>
+1. Create & configure a [postmark](https://postmarkapp.com/) account.
+1. Add these variables to your `.Renviron`:
 
 ```r
-# do not change these:
-PORT = 465
-HOST =  mail.privateemail.com
-
-# fill these:
 EMAIL = you@your-domain.com
-USERNAME = you@your-domain.com
-PASSWORD = your-strong-mailbox-password
+POSTMARK_SERVER_TOKEN = your-postmark-server-token
 ```
 
 ## Docker
