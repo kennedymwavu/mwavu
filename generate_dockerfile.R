@@ -1,6 +1,6 @@
 all_files <- list.files(path = ".", all.files = TRUE, recursive = TRUE)
 
-prefixes <- c(
+prefixes_to_ignore <- c(
   ".git",
   "renv",
   ".Rprofile",
@@ -10,7 +10,7 @@ prefixes <- c(
   "Dockerfile",
   "Dockerfile.base"
 )
-for (prefix in prefixes) {
+for (prefix in prefixes_to_ignore) {
   all_files <- all_files[!startsWith(x = all_files, prefix = prefix)]
 }
 
