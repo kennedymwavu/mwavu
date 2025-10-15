@@ -19,7 +19,7 @@ dockerfile <- paste(
   "FROM personal-website-base",
   "WORKDIR /app",
   copy_statements,
-  "EXPOSE 5000",
+  "EXPOSE 8000",
   'CMD ["Rscript", "index.R"]',
   sep = "\n"
 )
