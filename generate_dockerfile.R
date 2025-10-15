@@ -6,11 +6,20 @@ prefixes <- c(
   ".Rprofile",
   "dev.R",
   "generate_dockerfile.R",
-  "public/scss"
+  "docker-compose.yml",
+  "Dockerfile",
+  "Dockerfile.base"
 )
 for (prefix in prefixes) {
   all_files <- all_files[!startsWith(x = all_files, prefix = prefix)]
 }
+
+all_files <- strsplit(x = all_files, split = "/", fixed = TRUE) |>
+  sapply(FUN = `[[`, 1L) |>
+  unique()
+
+is_dir <- dir.exists(all_files)
+all_files[is_dir] <- paste0(all_files[is_dir], "/")
 
 copy_statements <- sprintf("COPY %s %s", all_files, all_files) |>
   paste(collapse = "\n")
