@@ -44,7 +44,14 @@ send_message <- \(
   tryCatch(
     expr = {
       out <- smtp(email, verbose = FALSE)
-      list(ok = TRUE)
+
+      status <- as.character(out$status_code) |> startsWith(prefix = "2")
+      if (!status) {
+        print("Something went wrong while sending a message.")
+        print(out)
+      }
+
+      list(ok = status)
     },
     error = \(e) {
       print(conditionMessage(e))
