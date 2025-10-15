@@ -1,7 +1,13 @@
 box::use(
-  emayili[
-    server,
-    envelope,
+  httr2[
+    request,
+    req_headers,
+    req_perform,
+    req_url_path,
+    last_response,
+    req_body_json,
+    req_auth_basic,
+    resp_body_json,
   ],
   .. /
     .. /
@@ -14,44 +20,46 @@ box::use(
 #' Send message via email
 #'
 #' @details This forwards the entered message to my inbox
-#' @param email String. Email of sender.
+#' @param client_name String. Name of sender.
+#' @param client_email String. Email of sender.
 #' @param subject String. Email subject.
 #' @param message String. Message.
 #' @return Named list, the most important being:
 #' - `ok`: Logical. Was message forwarded to my inbox successfully?
 #' @export
-send_message <- \(
-  email,
+send_message <- function(
+  client_name,
+  client_email,
   subject,
   message
 ) {
-  email <- envelope(
-    to = get_env_var("EMAIL"),
-    from = get_env_var("EMAIL"),
-    reply = email,
-    subject = subject,
-    text = message
-  )
+  subject <- sprintf("%s (from %s)", subject, client_name)
 
-  smtp <- server(
-    host = get_env_var("HOST"),
-    port = as.integer(get_env_var("PORT")),
-    use_ssl = TRUE,
-    username = get_env_var("USERNAME"),
-    password = get_env_var("PASSWORD")
-  )
+  req <- request(base_url = "https://api.postmarkapp.com/email") |>
+    req_headers(
+      Accept = "application/json",
+      `Content-Type` = "application/json",
+      `X-Postmark-Server-Token` = get_env_var(name = "POSTMARK_SERVER_TOKEN"),
+    ) |>
+    req_body_json(
+      data = list(
+        From = get_env_var(name = "EMAIL"),
+        To = get_env_var(name = "EMAIL"),
+        ReplyTo = client_email,
+        Subject = subject,
+        TextBody = message,
+        MessageStream = "outbound"
+      )
+    )
 
   tryCatch(
     expr = {
-      out <- smtp(email, verbose = FALSE)
+      out <- req |>
+        req_perform() |>
+        resp_body_json()
 
-      status <- as.character(out$status_code) |> startsWith(prefix = "2")
-      if (!status) {
-        print("Something went wrong while sending a message.")
-        print(out)
-      }
-
-      list(ok = status)
+      out$ok <- identical(out$ErrorCode, 0L)
+      out
     },
     error = \(e) {
       print(conditionMessage(e))

@@ -73,7 +73,8 @@ contact_post <- \(req, res) {
   }
 
   sent <- send_message(
-    email = email$value,
+    client_name = name$value,
+    client_email = email$value,
     subject = subject$value,
     message = message$value
   )
