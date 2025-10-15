@@ -4,7 +4,7 @@ Made with ❤️ using Ambiorix
 
 ## Prerequisites
 
-- R >= 4.1.0
+- R >= 4.5.0
 
 ## Installation
 
@@ -64,25 +64,51 @@ USERNAME = you@your-domain.com
 PASSWORD = your-strong-mailbox-password
 ```
 
-# Docker
+## Docker
 
-- Build the docker image:
+### Initial Setup or Library/Package Updates
 
-  ```bash
-  docker build -t personal-website .
-  ```
+If this is the first time running the project, or if library/package
+dependencies have changed, build the base image first:
 
-- Run the services via docker compose:
+```bash
+docker build -f Dockerfile.base -t personal-website-base .
+```
 
-  ```bash
-  docker compose up -d
-  ```
+### Redeploying After Code Changes
 
-  This will run the app on port 1028 of the host machine, so you will view it
-  at [localhost:1028](http://localhost:1028/)
+1. Generate the main `Dockerfile`:
 
-- To stop the services do:
+   ```bash
+   Rscript generate_dockerfile.R
+   ```
 
-  ```bash
-  docker compose down
-  ```
+   Generate this file locally so that changes are tracked via Git and only a
+   `git pull` is needed on the server.
+
+   Ensure you do not have any unnecessary files (eg. `dev.R`, `test.R` etc)
+   when running this to avoid "file not found" errors on the server. But
+   if you have such files (which you probably use for development), just
+   edit the `generate_dockerfile.R` and add them to the vector of ignored
+   prefixes. That way, they will not be `COPY`ied.
+
+2. Build the main image:
+
+   ```bash
+   docker build -t personal-website .
+   ```
+
+3. Stop the currently running services in this context:
+
+   ```bash
+   docker compose down
+   ```
+
+4. Start services with updates:
+
+   ```bash
+   docker compose up -d --remove-orphans
+   ```
+
+   This will run the app on port 1028 of the host machine, so you will view it
+   at [localhost:1028](http://localhost:1028/)
