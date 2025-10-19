@@ -3,10 +3,7 @@ box::use(
     request,
     req_headers,
     req_perform,
-    req_url_path,
-    last_response,
     req_body_json,
-    req_auth_basic,
     resp_body_json,
   ],
   .. /
