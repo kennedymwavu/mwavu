@@ -18,7 +18,8 @@ Made with ❤️ using Ambiorix
    cd mwavu
    ```
 
-1. Create an `env` file (`.Renviron`) at the root dir of the project and add this variable:
+1. Create an `env` file (`.Renviron`) at the root dir of the project and
+   add this variable:
 
    ```r
    RENV_CONFIG_SANDBOX_ENABLED = FALSE
@@ -42,21 +43,25 @@ Then visit [localhost:8000](http://localhost:8000/) to view the app.
 
 ## Contact Page Messages
 
-I have used [postmark](https://postmarkapp.com/)
+I have used the [Telegram Bot API](https://core.telegram.org/bots)
 to forward the messages entered in the contact form
-to my email.
+to my inbox. It's free.
 
-You can use whichever mail server you prefer, but if
-you need the form to work as-is, you will have to:
+If you need the form to work as-is, you will have to:
 
-1. Have a mailbox specific to your domain eg. <you@your-domain.com>
-1. Create & configure a [postmark](https://postmarkapp.com/) account.
+1. Create a Telegram bot.
+1. Get the bot's token.
+1. Get the chat ID where you want the bot to
+   forward the messages to.
 1. Add these variables to your `.Renviron`:
 
 ```r
-EMAIL = you@your-domain.com
-POSTMARK_SERVER_TOKEN = your-postmark-server-token
+TG_BOT_TOKEN = your-telegram-bot-token
+TG_CHAT_ID = your-telegram-chat-id
 ```
+
+If this sounds confusing, take watch
+[this youtube video](https://youtu.be/UhZtrhV7t3U?si=LNU89sjHyXHQWQ0A) (Not affiliated.)
 
 ## Docker
 
