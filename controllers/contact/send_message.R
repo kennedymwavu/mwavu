@@ -1,10 +1,10 @@
 box::use(
   httr2[
     request,
-    req_headers,
     req_perform,
     req_body_json,
     resp_body_json,
+    req_body_multipart,
   ],
   .. /
     .. /
@@ -14,7 +14,7 @@ box::use(
     ]
 )
 
-#' Send message via email
+#' Send message via telegram
 #'
 #' @details This forwards the entered message to my inbox
 #' @param client_name String. Name of sender.
@@ -30,23 +30,26 @@ send_message <- function(
   subject,
   message
 ) {
-  subject <- sprintf("%s (from %s)", subject, client_name)
+  msg <- paste0(
+    paste("Subject:", subject),
+    "\n",
+    paste("Name:", client_name),
+    "\n",
+    paste("Email:", client_email),
+    "\n\n",
+    message
+  )
 
-  req <- request(base_url = "https://api.postmarkapp.com/email") |>
-    req_headers(
-      Accept = "application/json",
-      `Content-Type` = "application/json",
-      `X-Postmark-Server-Token` = get_env_var(name = "POSTMARK_SERVER_TOKEN"),
-    ) |>
-    req_body_json(
-      data = list(
-        From = get_env_var(name = "EMAIL"),
-        To = get_env_var(name = "EMAIL"),
-        ReplyTo = client_email,
-        Subject = subject,
-        TextBody = message,
-        MessageStream = "outbound"
-      )
+  path <- sprintf(
+    "https://api.telegram.org/bot%s/sendMessage",
+    get_env_var(name = "TG_BOT_TOKEN")
+  )
+
+  req <- request(path) |>
+    req_body_multipart(
+      chat_id = get_env_var(name = "TG_CHAT_ID"),
+      text = msg,
+      parse_mode = "HTML"
     )
 
   tryCatch(
@@ -55,7 +58,6 @@ send_message <- function(
         req_perform() |>
         resp_body_json()
 
-      out$ok <- identical(out$ErrorCode, 0L)
       out
     },
     error = \(e) {

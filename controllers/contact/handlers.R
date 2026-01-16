@@ -79,7 +79,7 @@ contact_post <- \(req, res) {
     message = message$value
   )
 
-  if (!sent$ok) {
+  if (!isTRUE(sent$ok)) {
     response <- container(
       toastr_error(
         msg = "An error occurred while sending your message. Please retry."
