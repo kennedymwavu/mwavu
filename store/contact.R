@@ -150,7 +150,8 @@ text_area_input <- \(
       rows = "10",
       required = required,
       value
-    )
+    ),
+    ...
   )
 }
 
