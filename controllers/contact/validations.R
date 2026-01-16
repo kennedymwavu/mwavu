@@ -134,7 +134,8 @@ validate_subject <- \(subject) {
 #' @export
 validate_message <- \(message) {
   message <- message %||% ""
-  ok <- nzchar(message)
+  words <- strsplit(x = message, split = " ")[[1]]
+  ok <- length(words) >= 10L
 
   input_class <- "is-valid"
   validations <- NULL
@@ -143,7 +144,7 @@ validate_message <- \(message) {
     input_class <- "is-invalid"
     validations <- tags$div(
       class = "invalid-feedback",
-      "Please enter a message"
+      "Please enter a valid message"
     )
   }
 
