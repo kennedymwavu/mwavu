@@ -15,8 +15,8 @@
 /* Global Colors - Defaulting to Dark Mode */
 :root {
   --background-color: #060606;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
+  --default-color: #b0b0b0;
+  --heading-color: #e0e0e0;
   --accent-color: #34b7a7;
   --surface-color: #252525;
   --contrast-color: #ffffff;
@@ -24,11 +24,11 @@
 
 /* Nav Menu Colors */
 :root {
-  --nav-color: #ffffff;
+  --nav-color: #e0e0e0;
   --nav-hover-color: #34b7a7;
   --nav-mobile-background-color: #060606;
   --nav-dropdown-background-color: #252525;
-  --nav-dropdown-color: #ffffff;
+  --nav-dropdown-color: #e0e0e0;
   --nav-dropdown-hover-color: #34b7a7;
 }
 
@@ -40,8 +40,8 @@
 
 .dark-background {
   --background-color: #060606;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
+  --default-color: #b0b0b0;
+  --heading-color: #e0e0e0;
   --surface-color: #252525;
   --contrast-color: #ffffff;
 }
