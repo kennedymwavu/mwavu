@@ -4,12 +4,9 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font:
-    "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway", sans-serif;
-  --nav-font: "Poppins", sans-serif;
+  --default-font: "Fira Code", monospace;
+  --heading-font: "Fira Code", monospace;
+  --nav-font: "Fira Code", monospace;
 }
 
 /* Global Colors - Defaulting to Dark Mode */
@@ -836,7 +833,6 @@ section,
   transform: scale(-1, -1);
 }
 .testimonials .testimonial-item p {
-  font-style: italic;
   margin: 0 auto 15px auto;
 }
 .testimonials .swiper-wrapper {
