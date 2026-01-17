@@ -18,14 +18,14 @@ about <- \() {
         "blog.mwavu.com"
       ),
       "Computers & Programming",
-      "Painting, Philosophy"
+      "Farming, Generative Art"
     )
   )
   details_on_right <- create_details(
     items = c("Degree", "City"),
     values = c(
-      "BSc Actuarial Science",
-      "Nairobi, Kenya"
+      "Actuarial Science (UoN)",
+      "Nairobi"
     )
   )
   details <- tags$div(
@@ -155,12 +155,12 @@ about <- \() {
               tags$h2("Software Developer"),
               tags$p(
                 class = "fst-italic py-3",
-                "I started programming in 2020, during the Covid-19 era, while in my second year at the University of Nairobi. A unit on R programming sparked a passion that I've pursued ever since, leading me to shift my focus from Actuarial Science to Software Development — and I've never looked back."
+                "I started programming in 2020 when campus went weird and everything moved online. I picked up R for a class, then kept going until it stopped being “for class” and became the default way I think. I studied Actuarial Science at the University of Nairobi, but I was always going to end up shipping software... R just got there first."
               ),
               details,
               tags$p(
-                class = "py-3",
-                "Whether it's automating workflows, developing web applications, or contributing to open-source projects, I enjoy building tools that genuinely improve users' lives."
+                class = "fst-italic py-3",
+                "These days I mostly build backends and internal tools: APIs, dashboards, automations, and the boring glue that keeps products running."
               )
             )
           )
@@ -185,7 +185,7 @@ about <- \() {
         class = "testimonials section",
         create_section_title(
           title = "Testimonials",
-          subtitle = "Hear from those I've had the pleasure of working with"
+          subtitle = "Nice things people said (not coerced)"
         ),
         tags$div(
           class = "container",
