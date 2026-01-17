@@ -24,7 +24,7 @@ hero <- \() {
     id = "hero",
     class = "hero section",
     tags$img(
-      src = "assets/img/hero-bg.jpg",
+      src = "assets/img/hero-bg.svg",
       alt = "",
       `data-aos` = "fade-in"
     ),
