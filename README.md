@@ -1,6 +1,6 @@
 # Personal Website
 
-Made with ❤️ using Ambiorix
+Made with ❤️ using [Ambiorix](https://ambiorix.dev/).
 
 ## Prerequisites
 
