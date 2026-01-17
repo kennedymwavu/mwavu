@@ -135,16 +135,25 @@ validate_subject <- \(subject) {
 validate_message <- \(message) {
   message <- message %||% ""
   words <- strsplit(x = message, split = " ")[[1]]
-  ok <- length(words) >= 10L
+
+  min_word_count <- 10L
+  current_word_count <- length(words)
+  ok <- current_word_count >= min_word_count
 
   input_class <- "is-valid"
   validations <- NULL
 
   if (!ok) {
     input_class <- "is-invalid"
+    msg <- sprintf(
+      "Require at least %d words. Current count: %d",
+      min_word_count,
+      current_word_count
+    )
+
     validations <- tags$div(
       class = "invalid-feedback",
-      "Please enter a valid message"
+      msg
     )
   }
 
