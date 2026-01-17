@@ -60,8 +60,8 @@ TG_BOT_TOKEN = your-telegram-bot-token
 TG_CHAT_ID = your-telegram-chat-id
 ```
 
-If this sounds confusing, take watch
-[this youtube video](https://youtu.be/UhZtrhV7t3U?si=LNU89sjHyXHQWQ0A) (Not affiliated.)
+If this sounds confusing, watch
+[this youtube video](https://youtu.be/UhZtrhV7t3U?si=LNU89sjHyXHQWQ0A) (Not affiliated).
 
 ## Docker
 
