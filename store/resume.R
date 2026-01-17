@@ -12,7 +12,7 @@ resume <- \() {
   summary <- create_resume_item(
     title = "Kennedy Mwavu",
     institution = c(
-      "I'm always aiming to make a tangible impact through my work. I seek out challenges that blend analytical thinking with creative problem-solving."
+      "I build backend systems and internal tools with a focus on clarity, reliability, and long-term maintainability."
     ),
     items = c(
       "Programming Languages: R, JavaScript",
