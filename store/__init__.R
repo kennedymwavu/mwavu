@@ -17,11 +17,6 @@ box::use(
   . / about[about],
   . / resume[resume],
   . /
-    services[
-      services,
-      service_detail,
-      service_detail_title,
-      service_meta_label,
-    ],
+    services[services],
   . / page_meta[page_meta],
 )

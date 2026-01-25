@@ -2,8 +2,7 @@ box::use(
   htmltools[tags, tagList],
   .. / templates / path[template_path],
   .. /
-    store /
-    mod[
+    store[
       page_meta,
       home_page = home,
     ]

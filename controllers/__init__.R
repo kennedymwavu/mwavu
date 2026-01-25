@@ -8,9 +8,6 @@ box::use(
       download_resume,
     ],
   . /
-    services[
-      services,
-      service_detail,
-    ],
+    services[services_get],
   . / contact / handlers[contact_get, contact_post],
 )

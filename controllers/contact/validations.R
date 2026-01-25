@@ -2,8 +2,7 @@ box::use(
   htmltools[tags],
   .. /
     .. /
-    store /
-    mod[
+    store[
       text_input,
       text_area_input,
     ],

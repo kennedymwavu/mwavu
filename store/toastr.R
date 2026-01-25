@@ -1,6 +1,6 @@
 box::use(
   htmltools[tags],
-  .. / helpers / mod[`%||%`]
+  .. / helpers[`%||%`]
 )
 
 #' Toastr

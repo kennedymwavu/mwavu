@@ -1,8 +1,7 @@
 box::use(
   htmltools[tags, tagList],
   .. /
-    store /
-    mod[
+    store[
       page_meta,
       about_page = about,
     ],

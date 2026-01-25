@@ -8,8 +8,7 @@ box::use(
   ],
   .. /
     .. /
-    helpers /
-    mod[
+    helpers[
       get_env_var,
     ]
 )

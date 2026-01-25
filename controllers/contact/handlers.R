@@ -12,8 +12,7 @@ box::use(
     ],
   .. /
     .. /
-    store /
-    mod[
+    store[
       page_meta,
       contact_page = contact,
       contact_form,
