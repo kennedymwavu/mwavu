@@ -45,15 +45,15 @@ nav <- \(active = NULL) {
   page_hrefs <- c(
     "/",
     "/about",
-    "/resume",
     "/services",
+    "/resume",
     "/contact"
   )
   page_labels <- c(
     "Home",
     "About",
-    "Resume",
     "Services",
+    "Resume",
     "Contact"
   )
   page_list_items <- Map(
