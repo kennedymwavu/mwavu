@@ -73,6 +73,24 @@ validate_email <- \(email) {
     )
   }
 
+  mail <- tolower(email)
+  is_spam <- isTRUE(
+    grepl(
+      pattern = "jmailservice.com",
+      x = mail,
+      fixed = TRUE
+    )
+  )
+
+  if (is_spam) {
+    ok <- FALSE
+    input_class <- "is-invalid"
+    validations <- tags$div(
+      class = "invalid-feedback",
+      "Rejected."
+    )
+  }
+
   list(
     ok = ok,
     value = email,
@@ -97,7 +115,7 @@ validate_email <- \(email) {
 #' @export
 validate_subject <- \(subject) {
   subject <- subject %||% ""
-  ok <- nzchar(subject)
+  ok <- nzchar(subject) && nchar(subject) >= 5L
 
   input_class <- "is-valid"
   validations <- NULL
@@ -106,7 +124,32 @@ validate_subject <- \(subject) {
     input_class <- "is-invalid"
     validations <- tags$div(
       class = "invalid-feedback",
-      "Please enter the subject"
+      "Invalid. Too short."
+    )
+  }
+
+  subj <- tolower(subject)
+  is_spam <- isTRUE(
+    grepl(
+      pattern = "get found",
+      x = subj,
+      fixed = TRUE
+    )
+  ) ||
+    isTRUE(
+      grepl(
+        pattern = "real customers",
+        x = subj,
+        fixed = TRUE
+      )
+    )
+
+  if (is_spam) {
+    ok <- FALSE
+    input_class <- "is-invalid"
+    validations <- tags$div(
+      class = "invalid-feedback",
+      "Rejected."
     )
   }
 
@@ -153,6 +196,24 @@ validate_message <- \(message) {
     validations <- tags$div(
       class = "invalid-feedback",
       msg
+    )
+  }
+
+  msg <- tolower(message)
+  is_spam <- isTRUE(
+    grepl(
+      pattern = "if customers are searching for what you offer",
+      x = msg,
+      fixed = TRUE
+    )
+  )
+
+  if (is_spam) {
+    ok <- FALSE
+    input_class <- "is-invalid"
+    validations <- tags$div(
+      class = "invalid-feedback",
+      "Rejected."
     )
   }
 
