@@ -1033,6 +1033,11 @@ section,
 .contact .info-item {
   margin-bottom: 40px;
 }
+
+.contact .info-item:last-child {
+  margin-bottom: 0px;
+}
+
 .contact .info-item i {
   font-size: 20px;
   color: var(--accent-color);
