@@ -103,14 +103,14 @@ services <- \() {
           subtitle = tagList(
             tags$p(
               class = "text-start",
-              "Most software problems aren’t hard because of technology.",
-              "They’re hard because of unclear thinking, rushed decisions, and systems that grew without a plan."
+              "Most software problems aren’t hard because of technology...",
+              "They’re hard because of unclear thinking and rushed decisions."
             ),
 
             tags$p(
               class = "text-start",
               "My work is about reducing that mess:",
-              "building software that’s easier to reason about, easier to change, and less stressful to run."
+              "building software that’s easy to reason about, easier to change, and less stressful to run."
             )
           )
         ),
