@@ -76,13 +76,23 @@ contact_details <- \() {
         "github.com/kennedymwavu"
       )
     ),
-    tags$iframe(
-      src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.17044259232!2d36.76499681772576!3d-1.3030359804811678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi!5e0!3m2!1sen!2ske!4v1725313165835!5m2!1sen!2ske",
-      frameborder = "0",
-      style = "border:0; width: 100%; height: 270px",
-      allowfullscreen = "",
-      loading = "lazy",
-      referrerpolicy = "no-referrer-when-downgrade"
+    info_item(
+      data_aos_delay = "400",
+      icon_class = "bi bi-twitter-x",
+      title = "X/Twitter",
+      description = tags$a(
+        href = "https://x.com/kennedymwavu",
+        "x.com/kennedymwavu"
+      )
+    ),
+    info_item(
+      data_aos_delay = "400",
+      icon_class = "bi bi-bluesky",
+      title = "Bluesky",
+      description = tags$a(
+        href = "https://bsky.app/profile/mwavu.com",
+        "bsky.app/profile/mwavu.com"
+      )
     )
   )
 }
