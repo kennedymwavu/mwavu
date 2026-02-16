@@ -44,8 +44,6 @@ about <- \() {
     "R",
     "REST APIs",
     "Docker",
-    "DigitalOcean",
-    "Google Cloud",
     "Git",
     "JavaScript"
   )
@@ -55,8 +53,6 @@ about <- \() {
       "r.svg",
       "openapi.svg",
       "docker.svg",
-      "digitalocean.svg",
-      "googlecloud.svg",
       "git.svg",
       "javascript.svg"
     )
@@ -181,8 +177,8 @@ about <- \() {
         id = "skills",
         class = "skills section",
         create_section_title(
-          title = "Skills",
-          subtitle = "Where my expertise lies"
+          title = "Expertise",
+          subtitle = "I can wield these in great skill... and more."
         ),
         tags$div(
           class = "container",
