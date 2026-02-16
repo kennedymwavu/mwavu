@@ -155,12 +155,23 @@ about <- \() {
               tags$h2("Software Developer"),
               tags$p(
                 class = "py-3",
-                "I started programming in 2020 when campus went weird and everything moved online. I picked up R for a class, then kept going until it stopped being “for class” and became the default way I think. I studied Actuarial Science at the University of Nairobi, but I was always going to end up shipping software... R just got there first."
+                paste(
+                  "I started programming in my second year at the University of Nairobi.",
+                  "I picked up R for a statistics class. It was my first programming language,",
+                  "and it just clicked. I found it elegant and beautiful.",
+                  "I was completely drawn in, and ended up switching",
+                  "my career from Actuarial Science to Software Development. Later, I took",
+                  "a look at other languages and realized R was... quirky. This only fueled",
+                  "my interest in R, and at this point I think we're bound to each other."
+                )
               ),
               details,
               tags$p(
                 class = "py-3",
-                "These days I mostly build backends and internal tools: APIs, dashboards, automations, and the boring glue that keeps products running."
+                paste(
+                  "These days I mostly build backends, data applications, and internal tools:",
+                  "APIs, dashboards, automations, and the boring glue that keeps products running."
+                )
               )
             )
           )
