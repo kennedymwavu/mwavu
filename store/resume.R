@@ -12,7 +12,7 @@ resume <- \() {
   summary <- create_resume_item(
     title = "Kennedy Mwavu",
     institution = c(
-      "I build backend systems and internal tools with a focus on clarity, reliability, and long-term maintainability."
+      "I build backends, data applications, and internal tools."
     ),
     items = c(
       "Programming Languages: R, JavaScript",
@@ -56,9 +56,9 @@ resume <- \() {
   )
 
   seven_skies <- create_resume_item(
-    title = "Software Developer, Consultant",
+    title = "Software Developer",
     period = "Jan 2023 - June 2023",
-    institution = "Seven Skies",
+    institution = "Seven Skies Information & Research Ltd",
     items = c(
       "Implemented robust security measures, including encryption, authentication, and authorization protocols, safeguarding sensitive client data and ensuring compliance with industry standards.",
       "Transitioned legacy monolithic applications to a microservices architecture, improving system modularity, scalability and maintainability.",
@@ -84,7 +84,7 @@ resume <- \() {
         class = "resume section",
         create_section_title(
           title = "Resume",
-          subtitle = "A snapshot of my professional growth & accomplishments"
+          subtitle = "A snapshot of my professional growth & achievements."
         ),
         tags$div(
           class = "container",
@@ -144,9 +144,27 @@ create_resume_item <- \(
   class = NULL
 ) {
   class <- c("resume-item", class)
-  title <- if (!is.null(title)) tags$h4(title)
-  period <- if (!is.null(period)) tags$h5(period)
-  institution <- if (!is.null(institution)) tags$p(tags$em(institution))
+
+  title <- if (!is.null(title)) {
+    tags$h4(
+      title
+    )
+  }
+
+  period <- if (!is.null(period)) {
+    tags$p(
+      tags$em(
+        period
+      )
+    )
+  }
+
+  institution <- if (!is.null(institution)) {
+    tags$h5(
+      institution
+    )
+  }
+
   items <- if (!is.null(items)) {
     tags$ul(
       lapply(items, \(item) {
@@ -158,8 +176,8 @@ create_resume_item <- \(
   tags$div(
     class = class,
     title,
-    period,
     institution,
+    period,
     items
   )
 }

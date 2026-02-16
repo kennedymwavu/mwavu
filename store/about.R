@@ -102,7 +102,7 @@ about <- \() {
       "Founder, Opifex",
       "COO, ACTSERV",
       "Project Manager, ACTSERV",
-      "Business Development Lead, Seven Skies"
+      "Business Development Lead, Seven Skies Information & Research Ltd"
     ),
     statements = c(
       "Kennedy’s contributions to the Ambiorix framework have been outstanding. His deep understanding of the framework and innovative input have greatly enhanced its capabilities. His dedication and expertise are evident in every aspect of his work.",
