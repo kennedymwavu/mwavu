@@ -331,7 +331,6 @@ section + section {
 .section-title p {
   font-size: 15px;
   color: var(--text-secondary);
-  max-width: 680px;
   margin: 0;
 }
 
