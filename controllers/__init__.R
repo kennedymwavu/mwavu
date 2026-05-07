@@ -9,5 +9,6 @@ box::use(
     ],
   . /
     services[services_get],
+  . / portfolio[portfolio_get],
   . / contact / handlers[contact_get, contact_post],
 )

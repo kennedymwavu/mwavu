@@ -1,14 +1,17 @@
 box::use(
-  htmltools[tags, tagList],
+  hypertext[
+    tags,
+    tag_list,
+  ],
   . / header[header],
   . / create_section_title[create_section_title],
 )
 
 #' About page
 #'
-#' @return [htmltools::tags]
+#' @return [hypertext::tags]
 #' @export
-about <- \() {
+about <- function() {
   details_on_left <- create_details(
     items = c("Blog", "Interests", "Hobbies"),
     values = list(
@@ -63,25 +66,6 @@ about <- \() {
     create_skills(skill_names, skill_logos)
   )
 
-  swiper_config_script <- tags$script(
-    type = "application/json",
-    class = "swiper-config",
-    r'{
-      {
-        "loop": true,
-        "speed": 600,
-        "autoplay": {
-          "delay": 5000
-        },
-        "slidesPerView": "auto",
-        "pagination": {
-          "el": ".swiper-pagination",
-          "type": "bullets",
-          "clickable": true
-        }
-      }
-    }'
-  )
   testimonial_items <- create_testimonials(
     names = c(
       "John Coene",
@@ -105,23 +89,18 @@ about <- \() {
       "Business Development Lead, Seven Skies Information & Research Ltd"
     ),
     statements = c(
-      "Kennedy’s contributions to the Ambiorix framework have been outstanding. His deep understanding of the framework and innovative input have greatly enhanced its capabilities. His dedication and expertise are evident in every aspect of his work.",
-      "Kennedy’s technical expertise and commitment to delivering high-quality solutions have been invaluable to our projects. His ability to solve complex problems efficiently makes him an essential part of any team.",
-      "Working with Kennedy has been a pleasure. He’s reliable, proactive, and always goes the extra mile to ensure project success. His attention to detail and clear communication are exceptional.",
+      "Kennedy's contributions to the Ambiorix framework have been outstanding. His deep understanding of the framework and innovative input have greatly enhanced its capabilities. His dedication and expertise are evident in every aspect of his work.",
+      "Kennedy's technical expertise and commitment to delivering high-quality solutions have been invaluable to our projects. His ability to solve complex problems efficiently makes him an essential part of any team.",
+      "Working with Kennedy has been a pleasure. He's reliable, proactive, and always goes the extra mile to ensure project success. His attention to detail and clear communication are exceptional.",
       "Kennedy has a unique blend of technical skills and business acumen. His innovative approach and dedication to client needs have greatly contributed to our growth and success."
     )
   )
   testimonials <- tags$div(
-    class = "swiper init-swiper",
-    swiper_config_script,
-    tags$div(
-      class = "swiper-wrapper",
-      testimonial_items
-    ),
-    tags$div(class = "swiper-pagination")
+    class = "row g-4",
+    testimonial_items
   )
 
-  tagList(
+  tag_list(
     header(active = "About"),
     tags$main(
       class = "main",
@@ -137,37 +116,27 @@ about <- \() {
           `data-aos` = "fade-up",
           `data-aos-delay` = "100",
           tags$div(
-            class = "row gy-4 justify-content-center",
-            tags$div(
-              class = "col-lg-4 d-flex",
-              tags$img(
-                src = "assets/img/me.jpeg",
-                class = "img-fluid object-fit-cover",
-                alt = "Kennedy Mwavu"
+            class = "content",
+            tags$h2("Software Developer"),
+            tags$p(
+              class = "py-3",
+              paste(
+                "I started programming in my second year at the University of Nairobi.",
+                "R was my first programming language.",
+                "I picked it up for a statistics class, and it just clicked.",
+                "I found it elegant and beautiful.",
+                "I ended up switching",
+                "my career from Actuarial Science to Software Development. Later, I took",
+                "a look at other languages and realized R was... quirky. This only fueled",
+                "my interest in R, and at this point I think we're bound to each other."
               )
             ),
-            tags$div(
-              class = "col-lg-8 content",
-              tags$h2("Software Developer"),
-              tags$p(
-                class = "py-3",
-                paste(
-                  "I started programming in my second year at the University of Nairobi.",
-                  "I picked up R for a statistics class. It was my first programming language,",
-                  "and it just clicked. I found it elegant and beautiful.",
-                  "I was completely drawn in, and ended up switching",
-                  "my career from Actuarial Science to Software Development. Later, I took",
-                  "a look at other languages and realized R was... quirky. This only fueled",
-                  "my interest in R, and at this point I think we're bound to each other."
-                )
-              ),
-              details,
-              tags$p(
-                class = "py-3",
-                paste(
-                  "These days I mostly build backends, data applications, and internal tools:",
-                  "APIs, dashboards, automations, and the boring glue that keeps products running."
-                )
+            details,
+            tags$p(
+              class = "py-3",
+              paste(
+                "These days I mostly build backends, data applications, and internal tools:",
+                "APIs, dashboards, automations, and the boring glue that keeps products running."
               )
             )
           )
@@ -209,8 +178,8 @@ about <- \() {
 #'
 #' @param items Character vector, list. Label of the details eg. "Interests".
 #' @param values Character vector, list. Contents of `items` eg. "Programming"
-#' @return [htmltools::tags]
-create_details <- \(items, values) {
+#' @return [hypertext::tags]
+create_details <- function(items, values) {
   list_items <- Map(
     f = \(item, value) {
       tags$li(
@@ -230,8 +199,8 @@ create_details <- \(items, values) {
 #'
 #' @param items Character vector, list. Labels eg. "REST APIs".
 #' @param logos Character vector. Paths to logo images.
-#' @return [htmltools::tags]
-create_skills <- \(items, logos) {
+#' @return [hypertext::tags]
+create_skills <- function(items, logos) {
   Map(
     f = \(item, logo) {
       tags$div(
@@ -258,65 +227,39 @@ create_skills <- \(items, logos) {
   )
 }
 
-#' Make stats items
-#'
-#' @param items Character vector, list. Labels eg. "Years of Experience".
-#' @param values Character vector, list. Values corresponding to `items`.
-#' @return [htmltools::tags]
-make_stats <- \(items, values) {
-  Map(
-    f = \(item, value) {
-      tags$div(
-        class = "col-lg-3 col-md-6",
-        tags$div(
-          class = "stats-item text-center w-100 h-100",
-          tags$span(
-            `data-purecounter-start` = "0",
-            `data-purecounter-end` = value,
-            `data-purecounter-duration` = 1,
-            class = "purecounter",
-          ),
-          tags$p(item)
-        )
-      )
-    },
-    items,
-    values
-  )
-}
-
 #' Create testimonials
 #'
 #' @param names Character vector. Names of people giving testimonials.
 #' @param image_paths Character vector. Paths to the images of those people.
 #' @param job_titles Character vector. Their job titles.
 #' @param statements Character vector. The testimonials.
-#' @return [htmltools::tags]
-create_testimonials <- \(names, image_paths, job_titles, statements) {
+#' @return [hypertext::tags]
+create_testimonials <- function(names, image_paths, job_titles, statements) {
   Map(
     f = \(name, image_path, job_title, statement) {
       tags$div(
-        class = "swiper-slide",
+        class = "col-lg-6",
         tags$div(
           class = "testimonial-item",
-          tags$img(
-            src = image_path,
-            class = "testimonial-img",
-            alt = ""
-          ),
-          tags$h3(name),
-          tags$h4(job_title),
           tags$div(
-            class = "stars",
-            lapply(1:5, \(i) {
-              tags$i(class = "bi bi-star-fill")
-            })
+            class = "testimonial-header",
+            tags$img(
+              src = image_path,
+              class = "testimonial-img",
+              alt = name
+            ),
+            tags$div(
+              tags$h3(name),
+              tags$h4(job_title),
+              tags$div(
+                class = "stars",
+                lapply(1:5, \(i) {
+                  tags$i(class = "bi bi-star-fill")
+                })
+              )
+            )
           ),
-          tags$p(
-            tags$i(class = "bi bi-quote quote-icon-left"),
-            tags$span(statement),
-            tags$i(class = "bi bi-quote quote-icon-right")
-          )
+          tags$p(statement)
         )
       )
     },

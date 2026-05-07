@@ -1,6 +1,9 @@
 box::use(
   mime, # used by `ambiorix::parse_multipart()`
-  htmltools[tags, tagList],
+  hypertext[
+    tags,
+    render,
+  ],
   ambiorix[parse_multipart],
   . / send_message[send_message],
   . /
@@ -31,8 +34,8 @@ contact_get <- \(req, res) {
     template_path("page.html"),
     list(
       title = "Kennedy Mwavu - Contact",
-      content = contact_page(),
-      metatags = page_meta(label = "Contact Me")
+      content = contact_page() |> render(),
+      metatags = page_meta(label = "Contact Me") |> render()
     )
   )
 }
@@ -66,7 +69,7 @@ contact_post <- \(req, res) {
   if (!all_ok) {
     return(
       res$send(
-        container(validated_form)
+        container(validated_form) |> render()
       )
     )
   }
@@ -84,7 +87,9 @@ contact_post <- \(req, res) {
         msg = "An error occurred while sending your message. Please retry."
       ),
       validated_form
-    )
+    ) |>
+      render()
+
     return(
       res$send(response)
     )
@@ -97,7 +102,8 @@ contact_post <- \(req, res) {
   response <- container(
     toastr_success(msg = msg),
     default_contact_form()
-  )
+  ) |>
+    render()
 
   res$send(response)
 }

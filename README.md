@@ -4,7 +4,7 @@ Made with ❤️ using [Ambiorix](https://ambiorix.dev/).
 
 ## Prerequisites
 
-- R >= 4.5.0
+- R >= 4.6.0
 
 ## Installation
 

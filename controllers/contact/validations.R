@@ -1,5 +1,5 @@
 box::use(
-  htmltools[tags],
+  hypertext[tags],
   .. /
     .. /
     store[
@@ -15,9 +15,9 @@ box::use(
 #' @return Named list:
 #' - `ok`: Logical. Did all name validations pass?
 #' - `value`: The name.
-#' - `validations`: [htmltools::tags] The validated tags.
+#' - `validations`: [hypertext::tags] The validated tags.
 #' @export
-validate_name <- \(name) {
+validate_name <- function(name) {
   name <- name %||% ""
   ok <- nzchar(name)
 
@@ -50,10 +50,10 @@ validate_name <- \(name) {
 #' @param email String. email.
 #' @return Named list:
 #' - `ok`: Logical. Is email okay?
-#' - `validations`: [htmltools::tags] The validated tags.
+#' - `validations`: [hypertext::tags] The validated tags.
 #' - `value`: The email.
 #' @export
-validate_email <- \(email) {
+validate_email <- function(email) {
   email <- email %||% ""
   ok <- grepl(
     pattern = "\\<[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\>",
@@ -111,9 +111,9 @@ validate_email <- \(email) {
 #' @return Named list:
 #' - `ok`: Logical. Did all validations pass?
 #' - `value`: The subject.
-#' - `validations`: [htmltools::tags] The validated tags.
+#' - `validations`: [hypertext::tags] The validated tags.
 #' @export
-validate_subject <- \(subject) {
+validate_subject <- function(subject) {
   subject <- subject %||% ""
   ok <- nzchar(subject) && nchar(subject) >= 5L
 
@@ -172,9 +172,9 @@ validate_subject <- \(subject) {
 #' @return Named list:
 #' - `ok`: Logical. Did all validations pass?
 #' - `value`: The message.
-#' - `validations`: [htmltools::tags] The validated tags.
+#' - `validations`: [hypertext::tags] The validated tags.
 #' @export
-validate_message <- \(message) {
+validate_message <- function(message) {
   message <- message %||% ""
   words <- strsplit(x = message, split = " ")[[1]]
 

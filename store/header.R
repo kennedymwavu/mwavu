@@ -1,12 +1,14 @@
 box::use(
-  htmltools[tags, tagList],
+  hypertext[
+    tags,
+  ],
 )
 
 #' Page header
 #'
 #' @param active String. The active page. See [nav()].
 #' @export
-header <- \(active = NULL) {
+header <- function(active = NULL) {
   tags$header(
     id = "header",
     class = "header d-flex align-items-center light-background sticky-top",
@@ -41,11 +43,12 @@ header <- \(active = NULL) {
 #' - Portfolio
 #' - Contact
 #' @export
-nav <- \(active = NULL) {
+nav <- function(active = NULL) {
   page_hrefs <- c(
     "/",
     "/about",
     "/services",
+    "/portfolio",
     "/resume",
     "/contact"
   )
@@ -53,6 +56,7 @@ nav <- \(active = NULL) {
     "Home",
     "About",
     "Services",
+    "Portfolio",
     "Resume",
     "Contact"
   )
@@ -83,7 +87,7 @@ nav <- \(active = NULL) {
 #' @param class Character vector. Classes to apply to the container div of the
 #' links.
 #' @export
-social_links <- \(class = NULL) {
+social_links <- function(class = NULL) {
   hrefs <- c(
     "https://x.com/kennedymwavu",
     "https://github.com/kennedymwavu",

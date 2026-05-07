@@ -1,13 +1,16 @@
 box::use(
-  htmltools[tags, tagList],
+  hypertext[
+    tags,
+    tag_list,
+  ],
   . / header[header],
 )
 
 #' Contact page
 #'
 #' @export
-contact <- \() {
-  tagList(
+contact <- function() {
+  tag_list(
     header(active = "Contact"),
     tags$main(
       class = "main",
@@ -51,7 +54,7 @@ contact <- \() {
 #' Contact details
 #'
 #' @export
-contact_details <- \() {
+contact_details <- function() {
   tags$div(
     class = "info-wrap",
     info_item(
@@ -106,7 +109,7 @@ contact_details <- \() {
 #' @param title String. Title of the info item.
 #' @param description String. Description of the info item.
 #' @export
-info_item <- \(
+info_item <- function(
   data_aos_delay = "100",
   icon_class = NULL,
   title = NULL,
@@ -130,13 +133,13 @@ info_item <- \(
 
 #' Text area input
 #'
-#' @param label String. [htmltools::tags]. Input label.
+#' @param label String. [hypertext::tags]. Input label.
 #' @param id String. A unique input id.
 #' @param value String. Value of the input.
 #' @param required Logical. Should the 'required' attribute be added?
 #' @param class Character vector. Classes to apply to the input.
-#' @param ... [htmltools::tags] to include after the input.
-#' @return [htmltools::tags]
+#' @param ... [hypertext::tags] to include after the input.
+#' @return [hypertext::tags]
 #' @export
 text_area_input <- \(
   ...,
@@ -169,15 +172,15 @@ text_area_input <- \(
 
 #' Text input
 #'
-#' @param label String. [htmltools::tags]. Input label.
+#' @param label String. [hypertext::tags]. Input label.
 #' @param id String. A unique input id
 #' @param type String. Type of the input.
 #' Must be one of "text" (default) or "email".
 #' @param value String. Value of the input.
 #' @param required Logical. Should the 'required' attribute be added?
 #' @param class Character vector. Classes to apply to the input.
-#' @param ... [htmltools::tags] to include after the input.
-#' @return [htmltools::tags]
+#' @param ... [hypertext::tags] to include after the input.
+#' @return [hypertext::tags]
 #' @export
 text_input <- \(
   ...,
@@ -212,11 +215,11 @@ text_input <- \(
 
 #' Contact form
 #'
-#' @param name [htmltools::tags]
-#' @param email [htmltools::tags]
-#' @param subject [htmltools::tags]
-#' @param message [htmltools::tags]
-#' @return [htmltools::tags]
+#' @param name [hypertext::tags]
+#' @param email [hypertext::tags]
+#' @param subject [hypertext::tags]
+#' @param message [hypertext::tags]
+#' @return [hypertext::tags]
 #' @export
 contact_form <- \(
   name = NULL,
@@ -271,9 +274,9 @@ contact_form <- \(
 
 #' Default contact form
 #'
-#' @return [htmltools::tags]
+#' @return [hypertext::tags]
 #' @export
-default_contact_form <- \() {
+default_contact_form <- function() {
   contact_form(
     name = text_input(
       label = "Your Name",

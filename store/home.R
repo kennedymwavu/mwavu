@@ -1,13 +1,16 @@
 box::use(
-  htmltools[tags, tagList],
+  hypertext[
+    tags,
+    tag_list,
+  ],
   . / header[header],
 )
 
 #' Home page
 #'
 #' @export
-home <- \() {
-  tagList(
+home <- function() {
+  tag_list(
     header(active = "Home"),
     tags$main(
       class = "main",
@@ -19,15 +22,10 @@ home <- \() {
 #' Hero section
 #'
 #' @export
-hero <- \() {
+hero <- function() {
   tags$section(
     id = "hero",
     class = "hero section",
-    tags$img(
-      src = "assets/img/hero-bg.svg",
-      alt = "",
-      `data-aos` = "fade-in"
-    ),
     tags$div(
       class = "container text-center",
       `data-aos` = "zoom-out",
@@ -36,6 +34,11 @@ hero <- \() {
         class = "row justify-content-center",
         tags$div(
           class = "col-lg-8",
+          tags$img(
+            src = "assets/img/mwavu.png",
+            class = "hero-avatar",
+            alt = "Kennedy Mwavu"
+          ),
           tags$h2("Kennedy Mwavu"),
           tags$p("From code to canvas, I paint your R vision"),
           tags$a(

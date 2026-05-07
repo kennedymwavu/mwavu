@@ -1,6 +1,13 @@
 box::use(
-  htmltools[tags, tagList],
-  .. / templates / path[template_path],
+  hypertext[
+    tags,
+    render,
+  ],
+  .. /
+    templates /
+    path[
+      template_path
+    ],
   .. /
     store[
       page_meta,
@@ -11,13 +18,13 @@ box::use(
 #' Handle GET at '/resume'
 #'
 #' @export
-resume <- \(req, res) {
+resume <- function(req, res) {
   res$render(
     template_path("page.html"),
     list(
       title = "Kennedy Mwavu - Resume",
-      content = resume_page(),
-      metatags = page_meta(label = "Resume")
+      content = resume_page() |> render(),
+      metatags = page_meta(label = "Resume") |> render()
     )
   )
 }
@@ -25,7 +32,7 @@ resume <- \(req, res) {
 #' Handle GET at '/download-resume'
 #'
 #' @export
-download_resume <- \(req, res) {
+download_resume <- function(req, res) {
   path <- file.path(
     box::file(),
     "resume.pdf"
