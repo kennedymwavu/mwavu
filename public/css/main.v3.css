@@ -48,7 +48,7 @@ body {
   background-color: var(--bg);
   color: var(--text-primary);
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
 }
 
@@ -325,7 +325,7 @@ section + section {
 }
 
 .section-title p {
-  font-size: 15px;
+  font-size: 1rem;
   color: var(--text-secondary);
   margin: 0;
   margin-bottom: 3rem;
@@ -405,7 +405,7 @@ section + section {
 }
 
 .about .content > .py-3 {
-  font-size: 15px;
+  font-size: 1rem;
   line-height: 1.8;
   color: var(--text-secondary);
 }
@@ -422,7 +422,7 @@ section + section {
   gap: 10px;
   padding: 10px 0;
   border-bottom: 1px solid var(--border-dim);
-  font-size: 14px;
+  font-size: 0.9375rem;
 }
 
 .about .content ul li:last-child {
@@ -584,7 +584,7 @@ section + section {
 }
 
 .testimonials .testimonial-item p {
-  font-size: 14px;
+  font-size: 0.9375rem;
   line-height: 1.8;
   color: var(--text-secondary);
   margin: 0;
@@ -631,7 +631,7 @@ section + section {
 }
 
 .resume .resume-item h4 {
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 500;
   color: var(--text-primary);
   text-transform: none;
@@ -662,7 +662,7 @@ section + section {
 }
 
 .resume .resume-item ul li {
-  font-size: 13px;
+  font-size: 0.875rem;
   color: var(--text-secondary);
   line-height: 1.7;
   padding: 4px 0 4px 14px;
@@ -750,7 +750,7 @@ section + section {
 }
 
 .services .service-item p {
-  font-size: 14px;
+  font-size: 0.9375rem;
   color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 10px;
