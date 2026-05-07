@@ -48,9 +48,9 @@
     var closeBtn = toast.querySelector('.toast-close');
     closeBtn.addEventListener('click', function() { dismiss(toast); });
 
-    // auto-dismiss after 6s (0 = stay, matching previous toastr timeOut:"0" — but
-    // for a better UX we use 6s; set to 0 to keep indefinite)
-    var timeout = 6000;
+    // auto-dismiss after 10s (0 = stay, matching previous toastr timeOut:"0" — but
+    // for a better UX we use 10s; set to 0 to keep indefinite)
+    var timeout = 10000;
     if (timeout > 0) {
       setTimeout(function() { dismiss(toast); }, timeout);
     }
