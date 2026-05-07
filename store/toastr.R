@@ -1,5 +1,5 @@
 box::use(
-  htmltools[tags],
+  hypertext[tags],
   .. / helpers[`%||%`]
 )
 

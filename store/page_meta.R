@@ -1,12 +1,12 @@
 box::use(
-  htmltools[tags],
+  hypertext[tags],
 )
 
 #' Page specific meta tag
 #'
 #' Added to each page as the "description" meta tag.
 #' @param label String. Label eg. "Contact Me"
-#' @return [htmltools::tags]
+#' @return [hypertext::tags]
 #' @export
 page_meta <- \(label = NULL) {
   tags$meta(

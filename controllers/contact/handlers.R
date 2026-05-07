@@ -1,6 +1,8 @@
 box::use(
   mime, # used by `ambiorix::parse_multipart()`
-  htmltools[tags, tagList],
+  hypertext[
+    tags,
+  ],
   ambiorix[parse_multipart],
   . / send_message[send_message],
   . /

@@ -1,13 +1,16 @@
 box::use(
-  htmltools[tags, tagList],
+  hypertext[
+    tags,
+    tag_list,
+  ],
   . / header[header],
 )
 
 #' Home page
 #'
 #' @export
-home <- \() {
-  tagList(
+home <- function() {
+  tag_list(
     header(active = "Home"),
     tags$main(
       class = "main",
@@ -19,7 +22,7 @@ home <- \() {
 #' Hero section
 #'
 #' @export
-hero <- \() {
+hero <- function() {
   tags$section(
     id = "hero",
     class = "hero section",

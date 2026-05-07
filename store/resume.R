@@ -1,14 +1,17 @@
 box::use(
-  htmltools[tags, tagList],
+  hypertext[
+    tags,
+    tag_list,
+  ],
   . / header[header],
   . / create_section_title[create_section_title],
 )
 
 #' Resume page
 #'
-#' @return [htmltools::tags]
+#' @return [hypertext::tags]
 #' @export
-resume <- \() {
+resume <- function() {
   summary <- create_resume_item(
     title = "Kennedy Mwavu",
     institution = c(
@@ -75,7 +78,7 @@ resume <- \() {
     "Download My Resume"
   )
 
-  tagList(
+  tag_list(
     header(active = "Resume"),
     tags$main(
       class = "main",
@@ -135,8 +138,8 @@ resume <- \() {
 #' @param institution String. Institution attended.
 #' @param items Character vector. Items to include.
 #' @param class Character vector. Classes to apply to the container div.
-#' @return [htmltools::tags]
-create_resume_item <- \(
+#' @return [hypertext::tags]
+create_resume_item <- function(
   title = NULL,
   period = NULL,
   institution = NULL,

@@ -1,5 +1,5 @@
 box::use(
-  htmltools[tags]
+  hypertext[tags]
 )
 
 #' Create section title
@@ -8,7 +8,7 @@ box::use(
 #' @param subtitle String, [htmltools::tags]. Subtitle.
 #' @return [htmltools::tags]
 #' @export
-create_section_title <- \(title = NULL, subtitle = NULL) {
+create_section_title <- function(title = NULL, subtitle = NULL) {
   tags$div(
     class = "container section-title",
     `data-aos` = "fade-up",

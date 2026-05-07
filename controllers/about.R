@@ -1,5 +1,4 @@
 box::use(
-  htmltools[tags, tagList],
   .. /
     store[
       page_meta,

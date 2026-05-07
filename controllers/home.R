@@ -1,6 +1,12 @@
 box::use(
-  htmltools[tags, tagList],
-  .. / templates / path[template_path],
+  hypertext[
+    tags,
+  ],
+  .. /
+    templates /
+    path[
+      template_path,
+    ],
   .. /
     store[
       page_meta,
@@ -11,7 +17,7 @@ box::use(
 #' Handle GET at '/'
 #'
 #' @export
-home <- \(req, res) {
+home <- function(req, res) {
   res$render(
     template_path("page.html"),
     list(

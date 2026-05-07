@@ -1,14 +1,17 @@
 box::use(
-  htmltools[tags, tagList],
+  hypertext[
+    tags,
+    tag_list,
+  ],
   . / header[header],
   . / create_section_title[create_section_title],
 )
 
 #' About page
 #'
-#' @return [htmltools::tags]
+#' @return [hypertext::tags]
 #' @export
-about <- \() {
+about <- function() {
   details_on_left <- create_details(
     items = c("Blog", "Interests", "Hobbies"),
     values = list(
@@ -97,7 +100,7 @@ about <- \() {
     testimonial_items
   )
 
-  tagList(
+  tag_list(
     header(active = "About"),
     tags$main(
       class = "main",
@@ -174,8 +177,8 @@ about <- \() {
 #'
 #' @param items Character vector, list. Label of the details eg. "Interests".
 #' @param values Character vector, list. Contents of `items` eg. "Programming"
-#' @return [htmltools::tags]
-create_details <- \(items, values) {
+#' @return [hypertext::tags]
+create_details <- function(items, values) {
   list_items <- Map(
     f = \(item, value) {
       tags$li(
@@ -195,8 +198,8 @@ create_details <- \(items, values) {
 #'
 #' @param items Character vector, list. Labels eg. "REST APIs".
 #' @param logos Character vector. Paths to logo images.
-#' @return [htmltools::tags]
-create_skills <- \(items, logos) {
+#' @return [hypertext::tags]
+create_skills <- function(items, logos) {
   Map(
     f = \(item, logo) {
       tags$div(
@@ -229,8 +232,8 @@ create_skills <- \(items, logos) {
 #' @param image_paths Character vector. Paths to the images of those people.
 #' @param job_titles Character vector. Their job titles.
 #' @param statements Character vector. The testimonials.
-#' @return [htmltools::tags]
-create_testimonials <- \(names, image_paths, job_titles, statements) {
+#' @return [hypertext::tags]
+create_testimonials <- function(names, image_paths, job_titles, statements) {
   Map(
     f = \(name, image_path, job_title, statement) {
       tags$div(
