@@ -315,10 +315,6 @@ section + section {
 /*--------------------------------------------------------------
 # Section Titles
 --------------------------------------------------------------*/
-.section-title {
-  margin-bottom: 64px;
-}
-
 .section-title h2 {
   font-size: 13px;
   font-weight: 500;
@@ -332,10 +328,12 @@ section + section {
   font-size: 15px;
   color: var(--text-secondary);
   margin: 0;
+  margin-bottom: 3rem;
 }
 
 .section-title p + p {
   margin-top: 12px;
+  margin-bottom: 3rem;
 }
 
 /*--------------------------------------------------------------
