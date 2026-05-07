@@ -1,6 +1,7 @@
 box::use(
   hypertext[
     tags,
+    render,
   ],
   .. /
     templates /
@@ -22,8 +23,8 @@ resume <- function(req, res) {
     template_path("page.html"),
     list(
       title = "Kennedy Mwavu - Resume",
-      content = resume_page(),
-      metatags = page_meta(label = "Resume")
+      content = resume_page() |> render(),
+      metatags = page_meta(label = "Resume") |> render()
     )
   )
 }

@@ -1,4 +1,7 @@
 box::use(
+  hypertext[
+    render,
+  ],
   .. /
     store[
       page_meta,
@@ -15,8 +18,8 @@ about <- \(req, res) {
     template_path("page.html"),
     list(
       title = "Kennedy Mwavu - About",
-      content = about_page(),
-      metatags = page_meta(label = "About")
+      content = about_page() |> render(),
+      metatags = page_meta(label = "About") |> render()
     )
   )
 }

@@ -1,7 +1,7 @@
 box::use(
   hypertext[
     tags,
-    tagList,
+    tag_list,
   ],
   . / header[header],
   . / create_section_title[create_section_title],
@@ -64,7 +64,7 @@ services_catalog <- list(
 
 service_list <- unname(services_catalog)
 
-create_service_icon <- \(service) {
+create_service_icon <- function(service) {
   tags$div(
     class = "icon",
     tags$svg(
@@ -87,7 +87,7 @@ create_service_icon <- \(service) {
 #'
 #' @return [hypertext::tag_list]
 #' @export
-services <- \() {
+services <- function() {
   service_items <- Map(
     f = create_service_item,
     service = service_list,
@@ -123,7 +123,7 @@ services <- \() {
 #' @param service List. A single service definition.
 #' @param data_aos_delay Numeric. Delay for fade animation.
 #' @return [htmltools::tags]
-create_service_item <- \(service, data_aos_delay = 100) {
+create_service_item <- function(service, data_aos_delay = 100) {
   tags$div(
     class = "col-lg-4 col-md-6",
     `data-aos` = "fade-up",
