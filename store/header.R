@@ -48,6 +48,7 @@ nav <- function(active = NULL) {
     "/",
     "/about",
     "/services",
+    "/portfolio",
     "/resume",
     "/contact"
   )
@@ -55,6 +56,7 @@ nav <- function(active = NULL) {
     "Home",
     "About",
     "Services",
+    "Portfolio",
     "Resume",
     "Contact"
   )

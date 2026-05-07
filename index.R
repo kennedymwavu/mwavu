@@ -8,6 +8,7 @@ box::use(
       about,
       resume,
       services_get,
+      portfolio_get,
       contact_get,
       contact_post,
       download_resume,
@@ -32,6 +33,7 @@ app$get("/about", about)
 app$get("/resume", resume)
 app$get("/contact", contact_get)
 app$get("/services", services_get)
+app$get("/portfolio", portfolio_get)
 app$post("/contact", contact_post)
 app$get("/download-resume", download_resume)
 
