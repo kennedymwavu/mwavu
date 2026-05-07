@@ -32,7 +32,7 @@ hero <- \() {
         tags$div(
           class = "col-lg-8",
           tags$img(
-            src = "assets/img/me.jpeg",
+            src = "assets/img/mwavu.png",
             class = "hero-avatar",
             alt = "Kennedy Mwavu"
           ),
