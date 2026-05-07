@@ -1163,13 +1163,154 @@ section + section {
 }
 
 /*--------------------------------------------------------------
-# Bootstrap utility overrides
+# Layout — Container
 --------------------------------------------------------------*/
-.text-center {
-  text-align: center;
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-/* Form-control base */
+.container-fluid {
+  width: 100%;
+  padding: 0 2rem;
+}
+
+@media (max-width: 576px) {
+  .container,
+  .container-fluid {
+    padding: 0 1rem;
+  }
+}
+
+/*--------------------------------------------------------------
+# Layout — Grid
+--------------------------------------------------------------*/
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+
+.row > * {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  width: 100%;
+  min-width: 0;
+}
+
+/* gap utilities (gap between rows) */
+.gy-4 {
+  row-gap: 1.5rem;
+}
+
+.g-4 {
+  row-gap: 1.5rem;
+  column-gap: 0; /* columns handled via padding */
+}
+
+/* Column sizes — mobile first (all full width by default) */
+.col-12  { width: 100%; }
+
+/* Medium breakpoint ≥ 768px */
+@media (min-width: 768px) {
+  .col-md-4  { width: 33.3333%; }
+  .col-md-6  { width: 50%; }
+  .col-md-12 { width: 100%; }
+}
+
+/* Large breakpoint ≥ 992px */
+@media (min-width: 992px) {
+  .col-lg-3  { width: 25%; }
+  .col-lg-4  { width: 33.3333%; }
+  .col-lg-5  { width: 41.6667%; }
+  .col-lg-6  { width: 50%; }
+  .col-lg-7  { width: 58.3333%; }
+  .col-lg-8  { width: 66.6667%; }
+}
+
+/*--------------------------------------------------------------
+# Flex utilities
+--------------------------------------------------------------*/
+.d-flex              { display: flex !important; }
+.d-block             { display: block !important; }
+.align-items-center  { align-items: center !important; }
+.align-items-start   { align-items: flex-start !important; }
+.justify-content-center  { justify-content: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.flex-shrink-0       { flex-shrink: 0 !important; }
+.me-auto             { margin-right: auto !important; }
+.gap-3               { gap: 1rem !important; }
+
+/* XL breakpoint — hide on screens < 1200px */
+@media (max-width: 1199px) {
+  .d-xl-none { display: none !important; }
+}
+
+/* XL breakpoint — margin overrides */
+@media (min-width: 1200px) {
+  .me-xl-0 { margin-right: 0 !important; }
+}
+
+/*--------------------------------------------------------------
+# Spacing utilities
+--------------------------------------------------------------*/
+.py-3 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+.pb-0 { padding-bottom: 0 !important; }
+.pb-2 { padding-bottom: 0.5rem !important; }
+.px-1 { padding-left: 0.25rem !important; padding-right: 0.25rem !important; }
+.mt-4 { margin-top: 1.5rem !important; }
+
+/*--------------------------------------------------------------
+# Text utilities
+--------------------------------------------------------------*/
+.text-center      { text-align: center !important; }
+.text-start       { text-align: left !important; }
+.text-uppercase   { text-transform: uppercase !important; }
+.text-decoration-none { text-decoration: none !important; }
+.text-reset       { color: inherit !important; }
+.fw-semibold      { font-weight: 600 !important; }
+
+/*--------------------------------------------------------------
+# Image utilities
+--------------------------------------------------------------*/
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}
+
+/*--------------------------------------------------------------
+# Sizing utilities
+--------------------------------------------------------------*/
+.w-100 { width: 100% !important; }
+.h-100 { height: 100% !important; }
+
+/*--------------------------------------------------------------
+# Appearance utilities
+--------------------------------------------------------------*/
+.light-background {
+  background-color: var(--bg);
+}
+
+/*--------------------------------------------------------------
+# Position utilities
+--------------------------------------------------------------*/
+.position-relative { position: relative !important; }
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/*--------------------------------------------------------------
+# Form-control base
+--------------------------------------------------------------*/
 .form-control {
   display: block;
   width: 100%;
@@ -1195,4 +1336,103 @@ section + section {
 
 .form-control::placeholder {
   color: var(--text-dim);
+}
+
+/*--------------------------------------------------------------
+# Scroll animations
+--------------------------------------------------------------*/
+[data-aos] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-aos="zoom-out"] {
+  transform: scale(1.05);
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (max-width: 768px) {
+  [data-aos] {
+    transition-delay: 0s !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Toast notifications
+--------------------------------------------------------------*/
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 340px;
+  max-width: calc(100vw - 2rem);
+  pointer-events: none;
+}
+
+.toast {
+  width: 100%;
+  padding: 14px 40px 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background-color: var(--bg-raised);
+  color: var(--text-primary);
+  font-size: 13px;
+  line-height: 1.6;
+  position: relative;
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast.toast-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-success { border-left: 3px solid #27ae60; }
+.toast-error   { border-left: 3px solid #c0392b; }
+.toast-info    { border-left: 3px solid var(--accent); }
+.toast-warning { border-left: 3px solid #e67e22; }
+
+.toast-title {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.toast-msg {
+  color: var(--text-secondary);
+}
+
+.toast-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.toast-close:hover {
+  color: var(--text-primary);
 }

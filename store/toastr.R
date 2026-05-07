@@ -3,7 +3,9 @@ box::use(
   .. / helpers[`%||%`]
 )
 
-#' Toastr
+#' Toast notification
+#'
+#' Generates a `<script>` tag that calls the custom window.toast JS function.
 #'
 #' @param type String. Type of the toast. Valid options are:
 #' - info
@@ -25,7 +27,7 @@ toastr <- \(
 
   tags$script(
     sprintf(
-      'toastr["%s"]("%s", "%s");',
+      'window.toast["%s"]("%s", "%s");',
       type,
       msg,
       title
@@ -33,7 +35,7 @@ toastr <- \(
   )
 }
 
-#' Info toastr
+#' Info toast
 #'
 #' @inheritParams toastr
 #' @inherit toastr return
@@ -42,7 +44,7 @@ toastr_info <- \(title = "", msg = NULL) {
   toastr(type = "info", title = title, msg = msg)
 }
 
-#' Warning toastr
+#' Warning toast
 #'
 #' @inheritParams toastr
 #' @inherit toastr return
@@ -51,7 +53,7 @@ toastr_warning <- \(title = "Warning!", msg = NULL) {
   toastr(type = "warning", title = title, msg = msg)
 }
 
-#' Success toastr
+#' Success toast
 #'
 #' @inheritParams toastr
 #' @inherit toastr return
@@ -60,7 +62,7 @@ toastr_success <- \(title = "", msg = NULL) {
   toastr(type = "success", title = title, msg = msg)
 }
 
-#' Error toastr
+#' Error toast
 #'
 #' @inheritParams toastr
 #' @inherit toastr return
