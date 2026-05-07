@@ -20,17 +20,17 @@ packages_catalog <- list(
     url_label = "ambiorix.dev",
     icon_class = "bi bi-globe2"
   ),
-  rmon = list(
-    name = "rmon",
+  hypertext = list(
+    name = "hypertext",
     role = "Creator",
     description = paste(
-      "R's equivalent of nodemon. Monitors source files for changes and automatically",
-      "restarts scripts, Shiny apps, Ambiorix servers, or executes arbitrary R expressions",
-      "— so you can focus on coding instead of restarting manually."
+      "A deterministic, framework-agnostic DSL for building HTML nodes and",
+      "rendering them to a string. Provides tags, tag_list, and render() \u2014",
+      "the foundation this very site is built on."
     ),
-    url = "https://kennedymwavu.github.io/rmon/",
-    url_label = "kennedymwavu.github.io/rmon",
-    icon_class = "bi bi-arrow-repeat"
+    url = "https://cran.r-project.org/web/packages/hypertext/index.html",
+    url_label = "CRAN: hypertext",
+    icon_class = "bi bi-file-code"
   ),
   `firebase.auth.rest` = list(
     name = "firebase.auth.rest",
@@ -43,6 +43,18 @@ packages_catalog <- list(
     url = "https://kennedymwavu.github.io/firebase.auth.rest/",
     url_label = "kennedymwavu.github.io/firebase.auth.rest",
     icon_class = "bi bi-shield-lock"
+  ),
+  rmon = list(
+    name = "rmon",
+    role = "Creator",
+    description = paste(
+      "R's equivalent of nodemon. Monitors source files for changes and automatically",
+      "restarts scripts, Shiny apps, Ambiorix servers, or executes arbitrary R expressions",
+      "— so you can focus on coding instead of restarting manually."
+    ),
+    url = "https://kennedymwavu.github.io/rmon/",
+    url_label = "kennedymwavu.github.io/rmon",
+    icon_class = "bi bi-arrow-repeat"
   ),
   micromodal = list(
     name = "micromodal",
