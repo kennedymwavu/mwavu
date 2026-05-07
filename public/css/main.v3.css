@@ -715,7 +715,7 @@ section + section {
 .services .service-item {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 40px 32px;
+  padding: 40px 22px;
   height: 100%;
   transition: border-color 0.25s ease, background-color 0.25s ease;
   background-color: var(--bg);
