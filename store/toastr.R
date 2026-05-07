@@ -1,5 +1,8 @@
 box::use(
-  hypertext[tags],
+  hypertext[
+    tags,
+    raw_html,
+  ],
   .. / helpers[`%||%`]
 )
 
@@ -26,11 +29,13 @@ toastr <- \(
   msg <- msg %||% ""
 
   tags$script(
-    sprintf(
-      'window.toast["%s"]("%s", "%s");',
-      type,
-      msg,
-      title
+    raw_html(
+      sprintf(
+        'window.toast["%s"]("%s", "%s");',
+        type,
+        msg,
+        title
+      )
     )
   )
 }
