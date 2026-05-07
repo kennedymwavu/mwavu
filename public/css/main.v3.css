@@ -399,6 +399,13 @@ section + section {
 }
 
 @media (max-width: 768px) {
+  .hero-avatar {
+    width: 15rem;
+    height: 15rem;
+  }
+}
+
+@media (max-width: 768px) {
   .hero {
     padding: 60px 0;
   }
