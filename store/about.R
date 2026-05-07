@@ -63,25 +63,6 @@ about <- \() {
     create_skills(skill_names, skill_logos)
   )
 
-  swiper_config_script <- tags$script(
-    type = "application/json",
-    class = "swiper-config",
-    r'{
-      {
-        "loop": true,
-        "speed": 600,
-        "autoplay": {
-          "delay": 5000
-        },
-        "slidesPerView": "auto",
-        "pagination": {
-          "el": ".swiper-pagination",
-          "type": "bullets",
-          "clickable": true
-        }
-      }
-    }'
-  )
   testimonial_items <- create_testimonials(
     names = c(
       "John Coene",
@@ -105,20 +86,15 @@ about <- \() {
       "Business Development Lead, Seven Skies Information & Research Ltd"
     ),
     statements = c(
-      "Kennedy’s contributions to the Ambiorix framework have been outstanding. His deep understanding of the framework and innovative input have greatly enhanced its capabilities. His dedication and expertise are evident in every aspect of his work.",
-      "Kennedy’s technical expertise and commitment to delivering high-quality solutions have been invaluable to our projects. His ability to solve complex problems efficiently makes him an essential part of any team.",
-      "Working with Kennedy has been a pleasure. He’s reliable, proactive, and always goes the extra mile to ensure project success. His attention to detail and clear communication are exceptional.",
+      "Kennedy's contributions to the Ambiorix framework have been outstanding. His deep understanding of the framework and innovative input have greatly enhanced its capabilities. His dedication and expertise are evident in every aspect of his work.",
+      "Kennedy's technical expertise and commitment to delivering high-quality solutions have been invaluable to our projects. His ability to solve complex problems efficiently makes him an essential part of any team.",
+      "Working with Kennedy has been a pleasure. He's reliable, proactive, and always goes the extra mile to ensure project success. His attention to detail and clear communication are exceptional.",
       "Kennedy has a unique blend of technical skills and business acumen. His innovative approach and dedication to client needs have greatly contributed to our growth and success."
     )
   )
   testimonials <- tags$div(
-    class = "swiper init-swiper",
-    swiper_config_script,
-    tags$div(
-      class = "swiper-wrapper",
-      testimonial_items
-    ),
-    tags$div(class = "swiper-pagination")
+    class = "row g-4",
+    testimonial_items
   )
 
   tagList(
@@ -296,27 +272,28 @@ create_testimonials <- \(names, image_paths, job_titles, statements) {
   Map(
     f = \(name, image_path, job_title, statement) {
       tags$div(
-        class = "swiper-slide",
+        class = "col-lg-6",
         tags$div(
           class = "testimonial-item",
-          tags$img(
-            src = image_path,
-            class = "testimonial-img",
-            alt = ""
-          ),
-          tags$h3(name),
-          tags$h4(job_title),
           tags$div(
-            class = "stars",
-            lapply(1:5, \(i) {
-              tags$i(class = "bi bi-star-fill")
-            })
+            class = "testimonial-header",
+            tags$img(
+              src = image_path,
+              class = "testimonial-img",
+              alt = name
+            ),
+            tags$div(
+              tags$h3(name),
+              tags$h4(job_title),
+              tags$div(
+                class = "stars",
+                lapply(1:5, \(i) {
+                  tags$i(class = "bi bi-star-fill")
+                })
+              )
+            )
           ),
-          tags$p(
-            tags$i(class = "bi bi-quote quote-icon-left"),
-            tags$span(statement),
-            tags$i(class = "bi bi-quote quote-icon-right")
-          )
+          tags$p(statement)
         )
       )
     },

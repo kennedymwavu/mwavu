@@ -23,11 +23,6 @@ hero <- \() {
   tags$section(
     id = "hero",
     class = "hero section",
-    tags$img(
-      src = "assets/img/hero-bg.svg",
-      alt = "",
-      `data-aos` = "fade-in"
-    ),
     tags$div(
       class = "container text-center",
       `data-aos` = "zoom-out",
