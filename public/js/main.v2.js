@@ -61,24 +61,29 @@
   /**
    * Animate elements on scroll via IntersectionObserver (replaces AOS)
    */
-  function initScrollAnimations() {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('aos-animate');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
+  const scrollObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('aos-animate');
+          scrollObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
 
-    document.querySelectorAll('[data-aos]').forEach(el => {
-      observer.observe(el);
+  function observeAosElements(root) {
+    (root || document).querySelectorAll('[data-aos]').forEach(el => {
+      scrollObserver.observe(el);
     });
   }
 
-  window.addEventListener('load', initScrollAnimations);
+  window.addEventListener('load', () => observeAosElements(document));
+
+  // Re-observe [data-aos] elements injected by htmx swaps
+  document.addEventListener('htmx:afterSettle', (evt) => {
+    observeAosElements(evt.detail.elt);
+  });
 
 })();
