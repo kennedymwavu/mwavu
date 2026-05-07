@@ -390,10 +390,6 @@ section + section {
   color: var(--accent);
 }
 
-.hero .text-center {
-  text-align: left !important;
-}
-
 @media (max-width: 768px) {
   .hero {
     padding: 60px 0;
