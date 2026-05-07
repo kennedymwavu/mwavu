@@ -1244,8 +1244,8 @@ section + section {
 .me-auto             { margin-right: auto !important; }
 .gap-3               { gap: 1rem !important; }
 
-/* XL breakpoint — hide on screens < 1200px */
-@media (max-width: 1199px) {
+/* XL breakpoint — hide on screens >= 1200px */
+@media (min-width: 1200px) {
   .d-xl-none { display: none !important; }
 }
 
