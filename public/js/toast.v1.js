@@ -34,7 +34,6 @@
       inner += '<div class="toast-msg">' + msg + '</div>';
     }
     inner += '<button class="toast-close" aria-label="Close">&times;</button>';
-    inner += '<div class="toast-progress"></div>';
 
     toast.innerHTML = inner;
     c.appendChild(toast);

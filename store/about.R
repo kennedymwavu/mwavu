@@ -223,33 +223,6 @@ create_skills <- \(items, logos) {
   )
 }
 
-#' Make stats items
-#'
-#' @param items Character vector, list. Labels eg. "Years of Experience".
-#' @param values Character vector, list. Values corresponding to `items`.
-#' @return [htmltools::tags]
-make_stats <- \(items, values) {
-  Map(
-    f = \(item, value) {
-      tags$div(
-        class = "col-lg-3 col-md-6",
-        tags$div(
-          class = "stats-item text-center w-100 h-100",
-          tags$span(
-            `data-purecounter-start` = "0",
-            `data-purecounter-end` = value,
-            `data-purecounter-duration` = 1,
-            class = "purecounter",
-          ),
-          tags$p(item)
-        )
-      )
-    },
-    items,
-    values
-  )
-}
-
 #' Create testimonials
 #'
 #' @param names Character vector. Names of people giving testimonials.

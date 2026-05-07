@@ -765,11 +765,8 @@ section + section {
   margin-bottom: 0;
 }
 
-/* remove color variants — unified accent style */
+/* unified accent style for service icon color variants */
 .services .service-item.item-cyan i,
-.services .service-item.item-orange i,
-.services .service-item.item-teal i,
-.services .service-item.item-red i,
 .services .service-item.item-indigo i,
 .services .service-item.item-pink i {
   color: var(--accent);
@@ -1054,41 +1051,6 @@ section + section {
   }
 }
 
-/*--------------------------------------------------------------
-# Page Title / Breadcrumbs
---------------------------------------------------------------*/
-.page-title {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
-  color: var(--text-secondary);
-  background-color: var(--bg);
-}
-
-.page-title h1 {
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--text-primary);
-}
-
-.page-title .breadcrumbs ol {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 12px;
-  color: var(--text-dim);
-}
-
-.page-title .breadcrumbs ol li + li {
-  padding-left: 10px;
-}
-
-.page-title .breadcrumbs ol li + li::before {
-  content: "/";
-  padding-right: 10px;
-  color: var(--text-dim);
-}
 
 /*--------------------------------------------------------------
 # Loader (htmx indicator)
@@ -1125,45 +1087,6 @@ section + section {
   font-size: 12px;
 }
 
-.valid-feedback {
-  color: #27ae60;
-  font-size: 12px;
-}
-
-/*--------------------------------------------------------------
-# PHP Email Form (legacy classes used by server responses)
---------------------------------------------------------------*/
-.php-email-form .error-message {
-  display: none;
-  background: rgba(192, 57, 43, 0.15);
-  border: 1px solid rgba(192, 57, 43, 0.4);
-  color: #e07070;
-  padding: 12px 16px;
-  margin-bottom: 20px;
-  font-size: 13px;
-  border-radius: var(--radius-sm);
-}
-
-.php-email-form .sent-message {
-  display: none;
-  background: rgba(39, 174, 96, 0.12);
-  border: 1px solid rgba(39, 174, 96, 0.3);
-  color: #6dbb8a;
-  padding: 12px 16px;
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 13px;
-  border-radius: var(--radius-sm);
-}
-
-.php-email-form .loading {
-  display: none;
-  text-align: center;
-  padding: 12px 16px;
-  margin-bottom: 20px;
-  color: var(--text-dim);
-  font-size: 13px;
-}
 
 /*--------------------------------------------------------------
 # Layout — Container
@@ -1238,9 +1161,7 @@ section + section {
 # Flex utilities
 --------------------------------------------------------------*/
 .d-flex              { display: flex !important; }
-.d-block             { display: block !important; }
 .align-items-center  { align-items: center !important; }
-.align-items-start   { align-items: flex-start !important; }
 .justify-content-center  { justify-content: center !important; }
 .justify-content-between { justify-content: space-between !important; }
 .flex-shrink-0       { flex-shrink: 0 !important; }
@@ -1270,7 +1191,6 @@ section + section {
 # Text utilities
 --------------------------------------------------------------*/
 .text-center      { text-align: center !important; }
-.text-start       { text-align: left !important; }
 .text-uppercase   { text-transform: uppercase !important; }
 .text-decoration-none { text-decoration: none !important; }
 .text-reset       { color: inherit !important; }
@@ -1284,9 +1204,6 @@ section + section {
   height: auto;
 }
 
-.object-fit-cover {
-  object-fit: cover;
-}
 
 /*--------------------------------------------------------------
 # Sizing utilities
