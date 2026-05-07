@@ -608,7 +608,7 @@ section + section {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
-  margin: 0 0 28px 0;
+  margin-top: 3rem;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--border);
 }
