@@ -122,9 +122,10 @@ about <- function() {
               class = "py-3",
               paste(
                 "I started programming in my second year at the University of Nairobi.",
-                "I picked up R for a statistics class. It was my first programming language,",
-                "and it just clicked. I found it elegant and beautiful.",
-                "I was completely drawn in, and ended up switching",
+                "R was my first programming language.",
+                "I picked it up for a statistics class, and it just clicked.",
+                "I found it elegant and beautiful.",
+                "I ended up switching",
                 "my career from Actuarial Science to Software Development. Later, I took",
                 "a look at other languages and realized R was... quirky. This only fueled",
                 "my interest in R, and at this point I think we're bound to each other."
