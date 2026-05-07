@@ -31,6 +31,11 @@ hero <- \() {
         class = "row justify-content-center",
         tags$div(
           class = "col-lg-8",
+          tags$img(
+            src = "assets/img/me.jpeg",
+            class = "hero-avatar",
+            alt = "Kennedy Mwavu"
+          ),
           tags$h2("Kennedy Mwavu"),
           tags$p("From code to canvas, I paint your R vision"),
           tags$a(

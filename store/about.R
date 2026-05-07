@@ -113,37 +113,26 @@ about <- \() {
           `data-aos` = "fade-up",
           `data-aos-delay` = "100",
           tags$div(
-            class = "row gy-4 justify-content-center",
-            tags$div(
-              class = "col-lg-4 d-flex",
-              tags$img(
-                src = "assets/img/me.jpeg",
-                class = "img-fluid object-fit-cover",
-                alt = "Kennedy Mwavu"
+            class = "content",
+            tags$h2("Software Developer"),
+            tags$p(
+              class = "py-3",
+              paste(
+                "I started programming in my second year at the University of Nairobi.",
+                "I picked up R for a statistics class. It was my first programming language,",
+                "and it just clicked. I found it elegant and beautiful.",
+                "I was completely drawn in, and ended up switching",
+                "my career from Actuarial Science to Software Development. Later, I took",
+                "a look at other languages and realized R was... quirky. This only fueled",
+                "my interest in R, and at this point I think we're bound to each other."
               )
             ),
-            tags$div(
-              class = "col-lg-8 content",
-              tags$h2("Software Developer"),
-              tags$p(
-                class = "py-3",
-                paste(
-                  "I started programming in my second year at the University of Nairobi.",
-                  "I picked up R for a statistics class. It was my first programming language,",
-                  "and it just clicked. I found it elegant and beautiful.",
-                  "I was completely drawn in, and ended up switching",
-                  "my career from Actuarial Science to Software Development. Later, I took",
-                  "a look at other languages and realized R was... quirky. This only fueled",
-                  "my interest in R, and at this point I think we're bound to each other."
-                )
-              ),
-              details,
-              tags$p(
-                class = "py-3",
-                paste(
-                  "These days I mostly build backends, data applications, and internal tools:",
-                  "APIs, dashboards, automations, and the boring glue that keeps products running."
-                )
+            details,
+            tags$p(
+              class = "py-3",
+              paste(
+                "These days I mostly build backends, data applications, and internal tools:",
+                "APIs, dashboards, automations, and the boring glue that keeps products running."
               )
             )
           )
