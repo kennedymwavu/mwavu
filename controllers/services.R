@@ -13,7 +13,7 @@ box::use(
 #' Handle GET at '/services'
 #'
 #' @export
-services_get <- \(req, res) {
+services_get <- function(req, res) {
   res$render(
     template_path("page.html"),
     list(

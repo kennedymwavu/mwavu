@@ -1,5 +1,6 @@
 box::use(
   hypertext[
+    tag,
     tags,
     tag_list,
   ],
@@ -72,7 +73,9 @@ create_service_icon <- function(service) {
       height = "100",
       viewBox = "0 0 600 600",
       xmlns = "http://www.w3.org/2000/svg",
-      tags$path(
+      tag(
+        tag_name = "path",
+        tag_type = "void",
         stroke = "none",
         `stroke-width` = "0",
         fill = "#f5f5f5",
