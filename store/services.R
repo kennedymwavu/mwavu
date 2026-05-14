@@ -106,7 +106,7 @@ services <- function() {
         class = "services section",
         create_section_title(
           title = "Services",
-          subtitle = "My work is about reducing complexity by building software that’s easy to reason about, easy to change, and reliable to run."
+          subtitle = "My work is about reducing complexity by building software that’s easy to reason about, easier to change, and reliable to run."
         ),
         tags$div(
           class = "container",
