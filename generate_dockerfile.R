@@ -25,7 +25,7 @@ copy_statements <- sprintf("COPY %s %s", all_files, all_files) |>
   paste(collapse = "\n")
 
 dockerfile <- paste(
-  "FROM personal-website-base",
+  "FROM my-website-base",
   "WORKDIR /app",
   copy_statements,
   "EXPOSE 8000",

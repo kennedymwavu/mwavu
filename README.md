@@ -1,4 +1,4 @@
-# Personal Website
+# My Website
 
 Made with ❤️ using [Ambiorix](https://ambiorix.dev/).
 
@@ -71,7 +71,7 @@ If this is the first time running the project, or if library/package
 dependencies have changed, build the base image first:
 
 ```bash
-docker build -f Dockerfile.base -t personal-website-base .
+docker build -f Dockerfile.base -t my-website-base .
 ```
 
 ### Redeploying After Code Changes
@@ -94,7 +94,7 @@ docker build -f Dockerfile.base -t personal-website-base .
 2. Build the main image:
 
    ```bash
-   docker build -t personal-website .
+   docker build -t my-website .
    ```
 
 3. Stop the currently running services in this context:

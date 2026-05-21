@@ -1,4 +1,4 @@
-FROM personal-website-base
+FROM my-website-base
 WORKDIR /app
 COPY .Renviron .Renviron
 COPY controllers/ controllers/
