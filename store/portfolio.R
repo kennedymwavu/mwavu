@@ -8,7 +8,7 @@ box::use(
 )
 
 packages_catalog <- list(
-  ambiorix = list(
+  list(
     name = "ambiorix",
     role = "Maintainer",
     description = paste(
@@ -20,7 +20,7 @@ packages_catalog <- list(
     url_label = "ambiorix.dev",
     icon_class = "bi bi-globe2"
   ),
-  hypertext = list(
+  list(
     name = "hypertext",
     role = "Creator",
     description = paste(
@@ -32,7 +32,7 @@ packages_catalog <- list(
     url_label = "CRAN: hypertext",
     icon_class = "bi bi-file-code"
   ),
-  `firebase.auth.rest` = list(
+  list(
     name = "firebase.auth.rest",
     role = "Creator",
     description = paste(
@@ -44,7 +44,7 @@ packages_catalog <- list(
     url_label = "kennedymwavu.github.io/firebase.auth.rest",
     icon_class = "bi bi-shield-lock"
   ),
-  rmon = list(
+  list(
     name = "rmon",
     role = "Creator",
     description = paste(
@@ -56,7 +56,7 @@ packages_catalog <- list(
     url_label = "kennedymwavu.github.io/rmon",
     icon_class = "bi bi-arrow-repeat"
   ),
-  micromodal = list(
+  list(
     name = "micromodal",
     role = "Creator",
     description = paste(
@@ -72,19 +72,23 @@ packages_catalog <- list(
 
 books_catalog <- list(
   list(
-    title = "Ambiorix, R, and the Web",
-    description = "Discover the joy of building web applications and APIs using your favorite programming language (R, by the way).",
+    name = "Ambiorix, R, and the Web",
+    role = "Co-author",
+    description = paste(
+      "Discover the joy of building web applications and APIs using your",
+      "favorite programming language (R, by the way)."
+    ),
     url = "https://book.ambiorix.dev/",
+    url_label = "Read Online",
     icon_class = "bi bi-book"
   )
 )
 
 talks_catalog <- list(
   list(
-    title = "Building Web Apps and APIs in R with Ambiorix",
-    speakers = "Kennedy Mwavu & John Coene",
-    conference = "posit::conf(2025)",
-    abstract = paste(
+    name = "Building Web Apps and APIs in R with Ambiorix, posit::conf(2025)",
+    role = "Co-presenter",
+    description = paste(
       "Ambiorix reimagines web development in R, offering a flexible, autonomy-driven alternative.",
       "It gives developers full control over the request-response cycle, while providing essential",
       "web features like routing and middleware out of the box \u2014 ideal for developing large web",
@@ -92,13 +96,36 @@ talks_catalog <- list(
       "developers, and how it streamlines building web products & services in R."
     ),
     url = "https://youtu.be/2xZwPJHx4z8?si=TzCHTX57QwJlb5h8",
+    url_label = "Watch on YouTube",
     icon_class = "bi bi-play-circle"
   )
 )
 
-create_package_card <- function(pkg, data_aos_delay = 100) {
+#' Create Package Card
+#'
+#' @param pkg List of named lists /// Required.
+#'            Each of the named lists must have these fields:
+#'            - name
+#'            - role
+#'            - description
+#'            - url
+#'            - url_label
+#'            - icon_class
+#'
+#' @param class Character vector /// Optional.
+#'              CSS classes to apply to the container div.
+#'
+#' @param data_aos_delay Scalar numeric /// Optional.
+#'                       Animate On Scroll (AOS) delay.
+#'
+#' @return [hypertext::tags()]
+create_package_card <- function(
+  pkg,
+  class = "col-lg-4 col-md-6",
+  data_aos_delay = 100
+) {
   tags$div(
-    class = "col-lg-4 col-md-6",
+    class = class,
     `data-aos` = "fade-up",
     `data-aos-delay` = data_aos_delay,
     tags$div(
@@ -131,98 +158,28 @@ create_package_card <- function(pkg, data_aos_delay = 100) {
   )
 }
 
-create_talk_item <- function(talk, data_aos_delay = 100) {
-  tags$div(
-    class = "col-12",
-    `data-aos` = "fade-up",
-    `data-aos-delay` = data_aos_delay,
-    tags$div(
-      class = "portfolio-talk-item",
-      tags$div(
-        class = "portfolio-talk-item__meta",
-        tags$i(class = talk$icon_class),
-        tags$span(
-          class = "portfolio-talk-item__conference",
-          talk$conference
-        )
-      ),
-      tags$h3(
-        class = "portfolio-talk-item__title",
-        talk$title
-      ),
-      tags$p(
-        class = "portfolio-talk-item__speakers",
-        tags$i(class = "bi bi-people"),
-        talk$speakers
-      ),
-      tags$p(
-        class = "portfolio-talk-item__abstract",
-        talk$abstract
-      ),
-      tags$a(
-        class = "portfolio-talk-item__link",
-        href = talk$url,
-        target = "_blank",
-        rel = "noopener noreferrer",
-        tags$i(class = "bi bi-youtube"),
-        "Watch on YouTube"
-      )
-    )
-  )
-}
-
-create_book_card <- function(book, data_aos_delay = 100) {
-  tags$div(
-    class = "col-12",
-    `data-aos` = "fade-up",
-    `data-aos-delay` = data_aos_delay,
-    tags$div(
-      class = "portfolio-book-card",
-      tags$div(
-        class = "portfolio-book-card__header",
-        tags$i(class = book$icon_class)
-      ),
-      tags$h3(
-        class = "portfolio-book-card__title",
-        book$title
-      ),
-      tags$p(
-        class = "portfolio-book-card__desc",
-        book$description
-      ),
-      tags$a(
-        class = "portfolio-book-card__link",
-        href = book$url,
-        target = "_blank",
-        rel = "noopener noreferrer",
-        tags$i(class = "bi bi-arrow-up-right"),
-        "Read Online"
-      )
-    )
-  )
-}
-
 #' Portfolio page
 #'
 #' @return [hypertext::tag_list]
 #' @export
 portfolio <- function() {
-  pkg_list <- unname(packages_catalog)
   pkg_cards <- Map(
     f = create_package_card,
-    pkg = pkg_list,
-    data_aos_delay = seq_along(pkg_list) * 100
+    pkg = packages_catalog,
+    data_aos_delay = seq_along(packages_catalog) * 100
   )
 
   book_cards <- Map(
-    f = create_book_card,
-    book = books_catalog,
+    f = create_package_card,
+    pkg = books_catalog,
+    class = "col-12",
     data_aos_delay = seq_along(books_catalog) * 100
   )
 
   talk_items <- Map(
-    f = create_talk_item,
-    talk = talks_catalog,
+    f = create_package_card,
+    pkg = talks_catalog,
+    class = "col-12",
     data_aos_delay = seq_along(talks_catalog) * 100
   )
 
@@ -231,7 +188,6 @@ portfolio <- function() {
     tags$main(
       class = "main",
       tags$section(
-        id = "portfolio-packages",
         class = "portfolio-packages section",
         create_section_title(
           title = "R Packages",
@@ -246,7 +202,6 @@ portfolio <- function() {
         )
       ),
       tags$section(
-        id = "portfolio-books",
         class = "portfolio-books section",
         create_section_title(
           title = "Books",
@@ -261,7 +216,6 @@ portfolio <- function() {
         )
       ),
       tags$section(
-        id = "portfolio-talks",
         class = "portfolio-talks section",
         create_section_title(
           title = "Talks",
