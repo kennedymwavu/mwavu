@@ -101,7 +101,7 @@ talks_catalog <- list(
   )
 )
 
-#' Create Package Card
+#' Portfolio Item Card
 #'
 #' @param pkg List of named lists /// Required.
 #'            Each of the named lists must have these fields:
@@ -119,7 +119,7 @@ talks_catalog <- list(
 #'                       Animate On Scroll (AOS) delay.
 #'
 #' @return [hypertext::tags()]
-create_package_card <- function(
+PortfolioItemCard <- function(
   pkg,
   class = "col-lg-4 col-md-6",
   data_aos_delay = 100
@@ -164,20 +164,20 @@ create_package_card <- function(
 #' @export
 portfolio <- function() {
   pkg_cards <- Map(
-    f = create_package_card,
+    f = PortfolioItemCard,
     pkg = packages_catalog,
     data_aos_delay = seq_along(packages_catalog) * 100
   )
 
   book_cards <- Map(
-    f = create_package_card,
+    f = PortfolioItemCard,
     pkg = books_catalog,
     class = "col-12",
     data_aos_delay = seq_along(books_catalog) * 100
   )
 
   talk_items <- Map(
-    f = create_package_card,
+    f = PortfolioItemCard,
     pkg = talks_catalog,
     class = "col-12",
     data_aos_delay = seq_along(talks_catalog) * 100
