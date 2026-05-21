@@ -70,6 +70,15 @@ packages_catalog <- list(
   )
 )
 
+books_catalog <- list(
+  list(
+    title = "Ambiorix, R, and the Web",
+    description = "Discover the joy of building web applications and APIs using your favorite programming language (R, by the way).",
+    url = "https://book.ambiorix.dev/",
+    icon_class = "bi bi-book"
+  )
+)
+
 talks_catalog <- list(
   list(
     title = "Building Web Apps and APIs in R with Ambiorix",
@@ -162,6 +171,37 @@ create_talk_item <- function(talk, data_aos_delay = 100) {
   )
 }
 
+create_book_card <- function(book, data_aos_delay = 100) {
+  tags$div(
+    class = "col-12",
+    `data-aos` = "fade-up",
+    `data-aos-delay` = data_aos_delay,
+    tags$div(
+      class = "portfolio-book-card",
+      tags$div(
+        class = "portfolio-book-card__header",
+        tags$i(class = book$icon_class)
+      ),
+      tags$h3(
+        class = "portfolio-book-card__title",
+        book$title
+      ),
+      tags$p(
+        class = "portfolio-book-card__desc",
+        book$description
+      ),
+      tags$a(
+        class = "portfolio-book-card__link",
+        href = book$url,
+        target = "_blank",
+        rel = "noopener noreferrer",
+        tags$i(class = "bi bi-arrow-up-right"),
+        "Read Online"
+      )
+    )
+  )
+}
+
 #' Portfolio page
 #'
 #' @return [hypertext::tag_list]
@@ -174,11 +214,16 @@ portfolio <- function() {
     data_aos_delay = seq_along(pkg_list) * 100
   )
 
-  talk_list <- talks_catalog
+  book_cards <- Map(
+    f = create_book_card,
+    book = books_catalog,
+    data_aos_delay = seq_along(books_catalog) * 100
+  )
+
   talk_items <- Map(
     f = create_talk_item,
-    talk = talk_list,
-    data_aos_delay = seq_along(talk_list) * 100
+    talk = talks_catalog,
+    data_aos_delay = seq_along(talks_catalog) * 100
   )
 
   tag_list(
@@ -197,6 +242,21 @@ portfolio <- function() {
           tags$div(
             class = "row gy-4",
             pkg_cards
+          )
+        )
+      ),
+      tags$section(
+        id = "portfolio-books",
+        class = "portfolio-books section",
+        create_section_title(
+          title = "Books",
+          subtitle = "Notes and hard-earned lessons turned into books."
+        ),
+        tags$div(
+          class = "container",
+          tags$div(
+            class = "row gy-4",
+            book_cards
           )
         )
       ),
