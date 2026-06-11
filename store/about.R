@@ -13,22 +13,25 @@ box::use(
 #' @export
 about <- function() {
   details_on_left <- create_details(
-    items = c("Blog", "Interests", "Hobbies"),
-    values = list(
-      tags$a(
+    x = list(
+      Interests = "Computers & Programming",
+      Hobbies = "Farming, Generative Art",
+      Degree = "Actuarial Science (UoN)"
+    )
+  )
+  details_on_right <- create_details(
+    x = list(
+      Blog = tags$a(
         href = "https://blog.mwavu.com/",
         target = "_blank",
         "blog.mwavu.com"
       ),
-      "Computers & Programming",
-      "Farming, Generative Art"
-    )
-  )
-  details_on_right <- create_details(
-    items = c("Degree", "City"),
-    values = c(
-      "Actuarial Science (UoN)",
-      "Nairobi"
+      YouTube = tags$a(
+        href = "https://www.youtube.com/@kennedymwavu",
+        target = "_blank",
+        "youtube.com/@kennedymwavu"
+      ),
+      City = "Nairobi, Kenya"
     )
   )
   details <- tags$div(
@@ -176,20 +179,21 @@ about <- function() {
 
 #' Create about page details
 #'
-#' @param items Character vector, list. Label of the details eg. "Interests".
-#' @param values Character vector, list. Contents of `items` eg. "Programming"
+#' @param x Named List /// Required.
+#'          Data to create details for. Must be in the format `key = value`.
+#'
 #' @return [hypertext::tags]
-create_details <- function(items, values) {
+create_details <- function(x) {
   list_items <- Map(
-    f = \(item, value) {
+    f = \(key, value) {
       tags$li(
         tags$i(class = "bi bi-chevron-right"),
-        tags$strong(item, ":"),
+        tags$strong(key, ":"),
         tags$span(value)
       )
     },
-    items,
-    values
+    key = names(x),
+    value = x
   )
 
   tags$ul(list_items)
