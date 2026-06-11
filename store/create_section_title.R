@@ -12,7 +12,11 @@ create_section_title <- function(title = NULL, subtitle = NULL) {
   tags$div(
     class = "container section-title",
     `data-aos` = "fade-up",
-    tags$h2(title),
-    tags$p(subtitle)
+    if (!is.null(title)) {
+      tags$h2(title)
+    },
+    if (!is.null(subtitle)) {
+      tags$p(subtitle)
+    }
   )
 }
