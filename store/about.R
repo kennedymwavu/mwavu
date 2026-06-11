@@ -111,8 +111,8 @@ about <- function() {
         id = "about",
         class = "about section",
         create_section_title(
-          title = "About",
-          subtitle = "I write R for fun & profit."
+          title = "About me",
+          subtitle = NULL
         ),
         tags$div(
           class = "container",
@@ -120,28 +120,35 @@ about <- function() {
           `data-aos-delay` = "100",
           tags$div(
             class = "content",
-            tags$h2("Software Developer"),
             tags$p(
               class = "py-3",
-              paste(
-                "I started programming in my second year at the University of Nairobi.",
-                "R was my first programming language.",
-                "I picked it up for a statistics class, and it just clicked.",
-                "I found it elegant and beautiful.",
-                "I ended up switching",
-                "my career from Actuarial Science to Software Development. Later, I took",
-                "a look at other languages and realized R was... quirky. This only fueled",
-                "my interest in R, and at this point I think we're bound to each other."
-              )
+              "My first encounter with programming was in my second year at",
+              " the University of Nairobi. I picked up R for a statistics",
+              " class, and it just grew on me. I found it elegant and",
+              " beautiful. Then I became obsessed with writing programs. With",
+              " that kind of passion, it didn't take me long to realize that",
+              " I would do much better in Software Development than Actuarial",
+              " Science (my major). So I made the switch, thanks to the",
+              " internet and the power of self-learning.",
             ),
-            details,
             tags$p(
               class = "py-3",
-              paste(
-                "These days I mostly build backends, data applications, and internal tools:",
-                "APIs, dashboards, automations, and the boring glue that keeps products running."
-              )
-            )
+              "I've spent a good chunk of my career timeline building",
+              " software with R. In the very early days it was only",
+              " simple R scripts. Later, those turned into R packages",
+              " and interactive dashboards, most of which were internal.",
+              " I'm now in my era of fully-fledged data applications,",
+              " APIs, and the boring glue that keeps products running.",
+              " All in R.",
+            ),
+            tags$p(
+              class = "py-3",
+              "But in all this, one thing has remained constant: fun.",
+              " The thrill of writing programs is addicting. This is a high",
+              " I never want to get off of. So please, do not take me to",
+              " rehab."
+            ),
+            details
           )
         )
       ),
