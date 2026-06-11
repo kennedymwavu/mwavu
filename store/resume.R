@@ -45,6 +45,15 @@ resume <- function() {
     )
   )
 
+  sigflux <- create_resume_item(
+    title = "Founder",
+    period = "March 2025 - Present",
+    institution = "Sigflux Ltd",
+    items = c(
+      "Software for data teams."
+    )
+  )
+
   actserv <- create_resume_item(
     title = "Software Developer",
     period = "July 2021 - March 2025",
@@ -117,6 +126,7 @@ resume <- function() {
                 class = "resume-title",
                 "Professional Experience"
               ),
+              sigflux,
               actserv,
               seven_skies,
               tags$div(
