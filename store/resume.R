@@ -14,15 +14,13 @@ box::use(
 resume <- function() {
   summary <- create_resume_item(
     title = "Kennedy Mwavu",
-    institution = c(
-      "I build backends, data applications, and internal tools."
+    institution = paste(
+      "I am a software developer focused on the intersection of",
+      "R, data systems, and web infrastructure."
     ),
     items = c(
-      "Programming Languages: R, JavaScript",
-      "Version Control: Git, GitHub",
-      "APIs: RESTful API design & development",
-      "Containers: Docker",
-      "Cloud Platforms: Google Cloud Platform, Digital Ocean"
+      "Programming Languages: R, JavaScript, SQL",
+      "Tooling: Git, Docker"
     ),
     class = "pb-0"
   )
@@ -59,11 +57,31 @@ resume <- function() {
     period = "July 2021 - March 2025",
     institution = "Actuarial Services (EA) Ltd",
     items = c(
-      "Revolutionized the efficiency of runoff triangle processing, cutting processing time from 2 hours to 10 seconds. This breakthrough significantly boosted analytical productivity and accuracy for client projects.",
-      "Collaborated with the insurance team to develop comprehensive software modules for IFRS 17 insurance contracts, enhancing compliance, reporting accuracy, and operational efficiency.",
-      "Designed RESTful APIs consumed by internal and external applications, ensuring secure and efficient data exchange when integrating with third-party services.",
-      "Led a team of junior developers in the design, development and deployment of key software modules, providing mentorship and ensuring adherence to best coding practices.",
-      "Developed automated data processing pipelines that reduced manual intervention, thereby minimizing errors and cutting down data processing time by over 80%."
+      paste(
+        "Significantly boosted analytical productivity and accuracy of",
+        "insurance client projects by building a data web application",
+        "that cut runoff triangle processing time from 2 hours to 10 seconds."
+      ),
+      paste(
+        "Enhanced compliance, reporting accuracy, and operational efficiency",
+        "by liasing with the insurance team to develop comprehensive software",
+        "modules for IFRS 17 insurance contracts."
+      ),
+      paste(
+        "Ensured secure and efficient data exchange with third-party services",
+        "by designing RESTful data APIs consumed by internal and external",
+        "applications."
+      ),
+      paste(
+        "Provided mentorship and ensured adherence to best software",
+        "development practices by leading a team of junior developers in the",
+        "design, development, and deployment of key software modules."
+      ),
+      paste(
+        "Minimized errors and cut down processing time by over 80% by",
+        "developing automated data processing pipelines that reduced",
+        "manual intervention."
+      )
     )
   )
 
@@ -72,11 +90,29 @@ resume <- function() {
     period = "Jan 2023 - June 2023",
     institution = "Seven Skies Information & Research Ltd",
     items = c(
-      "Implemented robust security measures, including encryption, authentication, and authorization protocols, safeguarding sensitive client data and ensuring compliance with industry standards.",
-      "Transitioned legacy monolithic applications to a microservices architecture, improving system modularity, scalability and maintainability.",
-      "Set up continuous integration and continuous deployment pipelines using GitHub Actions and Docker, enabling rapid and reliable application updates and deployments.",
-      "Debugged and optimized R Shiny applications, improving performance and user experience.",
-      "Deployed applications via Google Cloud Platform (GCP), ensuring seamless operation and scalability."
+      paste(
+        "Safeguarded sensitive client data and ensured compliance with",
+        "industry standards by implementing robust security measures,",
+        "including encryption, authentication, and authorization protocols."
+      ),
+      paste(
+        "Improved system modularity, scalability, and maintainability by",
+        "transitioning legacy monolithic applications to a microservices",
+        "architecture."
+      ),
+      paste(
+        "Enabled rapid and reliable application updates and deployments",
+        "by setting up continuous integration and continuous deployment",
+        "pipelines using GitHub Actions and Docker."
+      ),
+      paste(
+        "Improved performance and user experience by optimizing data flow",
+        "in existing R Shiny applications."
+      ),
+      paste(
+        "Ensured seamless operation and scalability of applications by",
+        "deploying them via the Google Cloud Platform (GCP)."
+      )
     )
   )
 
@@ -95,15 +131,17 @@ resume <- function() {
         id = "resume",
         class = "resume section",
         create_section_title(
-          title = "Resume",
-          subtitle = "A snapshot of my professional growth & achievements."
+          title = "My resume",
+          subtitle = paste(
+            "A snapshot of my qualifications, work history, and education."
+          )
         ),
         tags$div(
           class = "container",
           tags$div(
             class = "row",
             tags$div(
-              class = "col-lg-6",
+              class = "col-lg-12",
               `data-aos` = "fade-up",
               `data-aos-delay` = "100",
               tags$h3(
@@ -113,22 +151,17 @@ resume <- function() {
               summary,
               tags$h3(
                 class = "resume-title",
-                "Education"
-              ),
-              university,
-              high_school
-            ),
-            tags$div(
-              class = "col-lg-6",
-              `data-aos` = "fade-up",
-              `data-aos-delay` = "200",
-              tags$h3(
-                class = "resume-title",
                 "Professional Experience"
               ),
               sigflux,
               actserv,
               seven_skies,
+              tags$h3(
+                class = "resume-title",
+                "Education"
+              ),
+              university,
+              high_school,
               tags$div(
                 class = "text-center",
                 download_link
