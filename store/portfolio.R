@@ -28,8 +28,8 @@ packages_catalog <- list(
       "rendering them to a string. Provides tags, tag_list, and render() \u2014",
       "the foundation this very site is built on."
     ),
-    url = "https://cran.r-project.org/web/packages/hypertext/index.html",
-    url_label = "CRAN: hypertext",
+    url = "https://github.com/sigflux/hypertext",
+    url_label = "sigflux/hypertext",
     icon_class = "bi bi-file-code"
   ),
   list(
@@ -41,7 +41,7 @@ packages_catalog <- list(
       "flows while still leveraging Firebase Auth."
     ),
     url = "https://kennedymwavu.github.io/firebase.auth.rest/",
-    url_label = "kennedymwavu.github.io/firebase.auth.rest",
+    url_label = "kennedymwavu/firebase.auth.rest",
     icon_class = "bi bi-shield-lock"
   ),
   list(
@@ -53,7 +53,7 @@ packages_catalog <- list(
       "— so you can focus on coding instead of restarting manually."
     ),
     url = "https://kennedymwavu.github.io/rmon/",
-    url_label = "kennedymwavu.github.io/rmon",
+    url_label = "kennedymwavu/rmon",
     icon_class = "bi bi-arrow-repeat"
   ),
   list(
@@ -65,7 +65,7 @@ packages_catalog <- list(
       "from any UI element."
     ),
     url = "https://kennedymwavu.github.io/micromodal/",
-    url_label = "kennedymwavu.github.io/micromodal",
+    url_label = "kennedymwavu/micromodal",
     icon_class = "bi bi-window-stack"
   )
 )
