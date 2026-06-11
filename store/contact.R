@@ -22,7 +22,11 @@ contact <- function() {
           `data-aos` = "fade-up",
           tags$h2("Contact"),
           tags$p(
-            "Have a project in mind you'd like help with? Just want to chat?"
+            paste(
+              "Have a project that you'd like help with? Just want to chat?",
+              "Leave me a message below and I'll get in touch within",
+              "2-4 days."
+            )
           )
         ),
         tags$div(
