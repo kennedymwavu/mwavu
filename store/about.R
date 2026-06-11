@@ -16,7 +16,12 @@ about <- function() {
     x = list(
       Interests = "Computers & Programming",
       Hobbies = "Farming, Generative Art",
-      Degree = "Actuarial Science (UoN)"
+      Degree = "Actuarial Science (UoN)",
+      Affiliations = tags$a(
+        href = "https://sigflux.com/",
+        target = "_blank",
+        "Sigflux"
+      )
     )
   )
   details_on_right <- create_details(
