@@ -40,7 +40,7 @@ hero <- function() {
             alt = "Kennedy Mwavu"
           ),
           tags$h2("Kennedy Mwavu"),
-          tags$p("From code to canvas, I paint your R vision"),
+          tags$p("I write R for fun & profit."),
           tags$a(
             href = "/about",
             class = "btn-get-started",
