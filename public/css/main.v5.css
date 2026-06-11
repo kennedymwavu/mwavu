@@ -479,9 +479,28 @@ section + section {
   min-width: 80px;
 }
 
-.about .content ul span,
-.about .content ul a {
+.about .content ul span {
   color: var(--text-secondary);
+}
+
+.about .content ul span a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    gap 0.2s ease;
+}
+
+.about .content ul span a:hover {
+  color: var(--accent-hover);
+  gap: 10px;
+}
+
+.about .content ul span a i {
+  font-size: 12px;
 }
 
 /*--------------------------------------------------------------

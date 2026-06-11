@@ -20,6 +20,7 @@ about <- function() {
       Affiliations = tags$a(
         href = "https://sigflux.com/",
         target = "_blank",
+        tags$i(class = "bi bi-arrow-up-right"),
         "Sigflux"
       )
     )
@@ -29,11 +30,13 @@ about <- function() {
       Blog = tags$a(
         href = "https://blog.mwavu.com/",
         target = "_blank",
+        tags$i(class = "bi bi-arrow-up-right"),
         "blog.mwavu.com"
       ),
       YouTube = tags$a(
         href = "https://www.youtube.com/@kennedymwavu",
         target = "_blank",
+        tags$i(class = "bi bi-arrow-up-right"),
         "youtube.com/@kennedymwavu"
       ),
       City = "Nairobi, Kenya"
