@@ -152,9 +152,10 @@ about <- function() {
             tags$p(
               class = "py-3",
               "But in all this, one thing has remained constant: fun.",
-              " The thrill of writing programs is addicting. This is a high",
-              " I never want to get off of. So please, do not take me to",
-              " rehab."
+              " The thrill of writing programs is addicting. The high",
+              " I get when people (programmers and non-programmers",
+              " alike) find my software creations useful makes it a",
+              " worthwhile addiction."
             ),
             details
           )
@@ -165,7 +166,12 @@ about <- function() {
         class = "skills section",
         create_section_title(
           title = "Expertise",
-          subtitle = "I can wield these in great skill... and more."
+          subtitle = paste(
+            "By now, you can tell that I'm a sucker for R and its quirks.",
+            "But software development is this huge and diverse tract of",
+            "land. More than often, each sub-division demands a different",
+            "and specific tool. Or should I say, skillset?"
+          )
         ),
         tags$div(
           class = "container",
@@ -179,7 +185,13 @@ about <- function() {
         class = "testimonials section",
         create_section_title(
           title = "Testimonials",
-          subtitle = "Nice things people said (not coerced)"
+          subtitle = paste(
+            "Now, aside from money, the other thing we all love are",
+            "compliments after we perform exceptionally.",
+            "Somewhere in that love hierarchy, is the subtle skill",
+            "of telling people the good things that other people said",
+            "about you."
+          )
         ),
         tags$div(
           class = "container",
