@@ -151,11 +151,12 @@ about <- function() {
             ),
             tags$p(
               class = "py-3",
-              "But in all this, one thing has remained constant: fun.",
+              "In all these years, one thing has remained constant: Fun.",
               " The thrill of writing programs is addicting. The high",
               " I get when people (programmers and non-programmers",
               " alike) find my software creations useful makes it a",
-              " worthwhile addiction."
+              " worthwhile addiction. But then again, aren't we all",
+              " finding ways to justify our addictions?"
             ),
             details
           )
