@@ -16,15 +16,19 @@ services_catalog <- list(
     title = "Software Development",
     summary = tag_list(
       tags$p(
-        "I design and build software that exists to do a job, not to look impressive in screenshots.",
-        "This includes web applications, internal tools, APIs, and systems that have to work under real-world",
-        "constraints like bad data, changing requirements, and people pressing the wrong buttons."
+        "I design and build software that exists to do a job, not just to",
+        " look impressive in screenshots.",
+        " This includes web applications, internal tools, APIs, and systems",
+        " that have to work under real-world constraints like bad data,",
+        " changing requirements, and people pressing the wrong buttons."
       ),
       tags$p(
-        "I handle the full lifecycle: shaping the problem, writing the code, shipping it, and keeping it alive in production."
+        "I handle the full lifecycle: shaping the problem, writing the code,",
+        " shipping it, and keeping it alive in production."
       ),
       tags$p(
-        "The goal is simple: software that is understandable, maintainable, and boring to operate."
+        "The goal is simple: software that is understandable, maintainable,",
+        " and boring to operate."
       )
     )
   ),
@@ -35,13 +39,18 @@ services_catalog <- list(
     title = "Consulting & Advisory",
     summary = tag_list(
       tags$p(
-        "I help teams think clearly about software before they commit to bad decisions.",
-        "That can mean reviewing architecture, simplifying over-engineered systems, or pushing",
-        "back on ideas that sound good on paper but don’t survive contact with reality."
+        "I help teams think clearly about software before they commit to",
+        " bad decisions.",
+        " That can mean reviewing architecture, simplifying over-engineered",
+        " systems, or pushing",
+        " back on ideas that sound good on paper but don’t survive contact",
+        " with reality."
       ),
       tags$p(
         "This is not motivational consulting or framework worship.",
-        "It’s practical, opinionated guidance focused on trade-offs, long-term costs, and building things you can still reason about a year from now."
+        " I offer practical, opinionated guidance focused on trade-offs,",
+        " long-term costs, and building things you can still reason about a",
+        " year from now."
       )
     )
   ),
@@ -52,12 +61,15 @@ services_catalog <- list(
     title = "Technical Training & Workshops",
     summary = tag_list(
       tags$p(
-        "I run hands-on training sessions for developers who want to actually understand what they’re working with.",
-        "These are practical workshops focused on how things fit together, why certain patterns exist, and when not to use them."
+        "I run hands-on training sessions for developers who want to",
+        " actually understand what they’re working with.",
+        " These workshops are focused on how things fit together, why",
+        " certain patterns exist, and when not to use them."
       ),
       tags$p(
         "No slide decks full of buzzwords, no artificial examples.",
-        "We work with real problems, real code, and the kind of questions that come up once the tutorial ends and the job starts."
+        " We work with real problems, real code, and the kind of",
+        " questions that come up once the tutorial ends and the job starts."
       )
     )
   )
