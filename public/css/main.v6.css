@@ -550,6 +550,10 @@ section + section {
   transition: opacity 0.2s ease;
 }
 
+.skills .skill-card__logo.skill-card__logo__sql img {
+  filter: none;
+}
+
 .skills .skill-card:hover .skill-card__logo img {
   opacity: 0.9;
 }

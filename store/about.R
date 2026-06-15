@@ -56,7 +56,7 @@ about <- function() {
 
   skill_names <- c(
     "R",
-    "REST APIs",
+    "SQL",
     "Docker",
     "Git",
     "JavaScript"
@@ -65,7 +65,7 @@ about <- function() {
     "assets/img/skills/",
     c(
       "r.svg",
-      "openapi.svg",
+      "database.svg",
       "docker.svg",
       "git.svg",
       "javascript.svg"
@@ -239,7 +239,13 @@ create_skills <- function(items, logos) {
         tags$div(
           class = "skill-card d-flex align-items-center gap-3",
           tags$div(
-            class = "skill-card__logo d-flex align-items-center justify-content-center",
+            class = c(
+              "skill-card__logo",
+              "d-flex align-items-center justify-content-center",
+              if (identical(item, "SQL")) {
+                "skill-card__logo__sql"
+              }
+            ),
             tags$img(
               src = logo,
               alt = item,
