@@ -135,7 +135,7 @@ resume <- function() {
           subtitle = paste(
             "I have left a mark across several organizations",
             "and many codebases. The achievements over the",
-            "years cannot all fit into a single piece",
+            "years cannot all fit on a single piece",
             "of paper, but here's a snapshot of my qualifications,",
             "work history, and education."
           )
