@@ -19,7 +19,7 @@ resume <- function() {
       "R, data systems, and web infrastructure."
     ),
     items = c(
-      "Programming Languages: R, JavaScript, SQL",
+      "Programming Languages: R, SQL, JavaScript",
       "Tooling: Git, Docker"
     ),
     class = "pb-0"
@@ -133,7 +133,11 @@ resume <- function() {
         create_section_title(
           title = "My resume",
           subtitle = paste(
-            "A snapshot of my qualifications, work history, and education."
+            "I have left a mark across several organizations",
+            "and many codebases. The achievements over the",
+            "years cannot all fit into a single piece",
+            "of paper, but here's a snapshot of my qualifications,",
+            "work history, and education."
           )
         ),
         tags$div(
