@@ -14,11 +14,12 @@ box::use(
 resume <- function() {
   summary <- create_resume_item(
     title = "Kennedy Mwavu",
-    institution = paste(
-      "I am a software developer focused on the intersection of",
-      "R, data systems, and web infrastructure."
-    ),
+    institution = NULL,
     items = c(
+      paste(
+        "I am a software developer focused on the intersection of",
+        "R, data systems, and web infrastructure."
+      ),
       "Programming Languages: R, SQL, JavaScript",
       "Tooling: Git, Docker"
     ),
@@ -58,60 +59,43 @@ resume <- function() {
     institution = "Actuarial Services (EA) Ltd",
     items = c(
       paste(
-        "Significantly boosted analytical productivity and accuracy of",
-        "insurance client projects by building a data web application",
-        "that cut runoff triangle processing time from 2 hours to 10 seconds."
+        "Built *GenVal*, an actuarial valuation platform",
+        "used for insurance reserving, reporting, and analytical workflows."
       ),
       paste(
-        "Enhanced compliance, reporting accuracy, and operational efficiency",
-        "by liasing with the insurance team to develop comprehensive software",
-        "modules for IFRS 17 insurance contracts."
+        "Optimized actuarial computations, reducing runoff triangle processing",
+        "from approximately two hours to ten seconds using R and data.table."
       ),
       paste(
-        "Ensured secure and efficient data exchange with third-party services",
-        "by designing RESTful data APIs consumed by internal and external",
-        "applications."
+        "Developed IFRS 17 reporting modules, reserving models, REST APIs, and",
+        "automated data processing pipelines supporting actuarial and insurance"
       ),
       paste(
-        "Provided mentorship and ensured adherence to best software",
-        "development practices by leading a team of junior developers in the",
-        "design, development, and deployment of key software modules."
-      ),
-      paste(
-        "Minimized errors and cut down processing time by over 80% by",
-        "developing automated data processing pipelines that reduced",
-        "manual intervention."
+        "Mentored junior developers, reviewed code, and contributed to the",
+        "architecture of production R applications."
       )
     )
   )
 
   seven_skies <- create_resume_item(
     title = "Software Developer",
-    period = "Jan 2023 - June 2023",
+    period = "June 2020 - July 2021",
     institution = "Seven Skies Information & Research Ltd",
     items = c(
       paste(
-        "Safeguarded sensitive client data and ensured compliance with",
-        "industry standards by implementing robust security measures,",
-        "including encryption, authentication, and authorization protocols."
+        "Built a famine early warning dashboard for",
+        "Kenya, visualizing forage conditions, climate indicators, and food",
+        "security metrics across county, sub-county, and ward levels."
       ),
       paste(
-        "Improved system modularity, scalability, and maintainability by",
-        "transitioning legacy monolithic applications to a microservices",
-        "architecture."
+        "Developed interactive geospatial visualizations using Leaflet, Mapbox,",
+        "and shapefiles to support monitoring of forage conditions, trigger",
+        "levels, and population-at-risk estimates."
       ),
       paste(
-        "Enabled rapid and reliable application updates and deployments",
-        "by setting up continuous integration and continuous deployment",
-        "pipelines using GitHub Actions and Docker."
-      ),
-      paste(
-        "Improved performance and user experience by optimizing data flow",
-        "in existing R Shiny applications."
-      ),
-      paste(
-        "Ensured seamless operation and scalability of applications by",
-        "deploying them via the Google Cloud Platform (GCP)."
+        "Integrated multiple environmental and food security datasets,",
+        "implementing automated validation and ETL workflows for Excel, CSV, and",
+        "SQLite data sources."
       )
     )
   )
