@@ -189,7 +189,7 @@ about <- function() {
           subtitle = paste(
             "Now, aside from money, the other thing we all love are",
             "compliments after we perform exceptionally.",
-            "Somewhere in that love hierarchy, is the subtle skill",
+            "Somewhere in that love hierarchy is the subtle art",
             "of telling people the good things that other people said",
             "about you."
           )
