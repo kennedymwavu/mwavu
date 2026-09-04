@@ -137,7 +137,7 @@ about <- function() {
               " that kind of passion, it didn't take me long to realize that",
               " I would do much better in Software Development than Actuarial",
               " Science (my major). So I made the switch, thanks to the",
-              " internet and the power of self-learning.",
+              " resourcefulness of the internet.",
             ),
             tags$p(
               class = "py-3",
